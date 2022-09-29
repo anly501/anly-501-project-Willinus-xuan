@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data Exploring</title>
+    <link rel="stylesheet" href="./project.css">
+</head>
+
+<body>
+    <!-- homepage返回 contact联系方式 github网站 code查看-->
+    <header>
+        <div class="su-brand-bar su-brand-bar--default">
+            <div class="header-container">
+                <div class="header-leftside">
+                    <a class="su-brand-bar__logo" href="https://www.georgetown.edu/">Georgetown University</a>
+                </div>
+
+                <div class="header-rightside">
+                    <a class="su-brand-bar__logo" href="http://haoxuan-weng.georgetown.domains/501-project-website/index.html">
+                        Return to profile
+                    </a>
+                    <a class="su-brand-bar__logo code" href="https://github.com/anly501/anly-501-project-Willinus-xuan">
+                        Browse code 
+                    </a>
+                    <a class="su-brand-bar__logo code" href="https://github.com/anly501/anly-501-project-Willinus-xuan">
+                        Preview dataset
+                    </a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <section class="banner">
+        <div class="left-side">
+            <img src="https://images.unsplash.com/photo-1663051957237-8da7729a1c15?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80" alt="project-overview">
+        </div>
+        <div class="content-container">
+            <div class="subject">
+                ANLY 501 Data Science And Analytics
+            </div>
+            <div class='research-name'>
+                <h1>
+                    Automatic Cyberbulleying detect
+                </h1>
+            </div>
+        </div>
+    </section>
+
+    <section class="wrapper">
+        <div style="position:sticky;top: 300px;float: left;max-width: 25%;">
+            <nav class="bx--tableofcontents__desktop" data-autoid="dds--tableofcontents__desktop">
+                <ul>
+                    <li class="bx--tableofcontents__desktop__item"><a href="http://haoxuan-weng.georgetown.domains/501-project-website/introduction.html">About this project</a></li>
+                    <li class="bx--tableofcontents__desktop__item bx--tableofcontents__desktop__item--active data_collection"><a href="http://haoxuan-weng.georgetown.domains/501-project-website/data_collection.html" aria-current="location">Data collection</a></li>
+                    <li class="bx--tableofcontents__desktop__item"><a href="#creativity-at-work">Data Cleaning</a></li>
+                    <li class="bx--tableofcontents__desktop__item"><a href="#trials">Exploring Data</a></li>
+                    <li class="bx--tableofcontents__desktop__item"><a href="#trials">Naïve Bayes</a></li>
+                    <li class="bx--tableofcontents__desktop__item"><a href="#trials">Decision Trees</a></li>
+                    <li class="bx--tableofcontents__desktop__item"><a href="#trials">SVM</a></li>
+                    <li class="bx--tableofcontents__desktop__item"><a href="#trials">Clustering</a></li>
+                    <li class="bx--tableofcontents__desktop__item"><a href="#trials">ARM and Networking</a></li>
+                    <li class="bx--tableofcontents__desktop__item"><a href="#trials">Conclusions</a></li>
+                </ul>
+            </nav>
+        </div>
+
+        <div class="wrapper-content">
+            <h1>2.Data Exploring</h1>
+            <p id='ppp'>
+                the label unit of x/y axis are specified in the code. If you may be confused by the unit meaning, please check the output charts in my python files, and please minus points because the label unit problem, plz.
+            </p>
+            <div>
+                <p>
+                    For the purposing of grasping deeper sense of how our data generally look like, I conduct a Exploratory data analysis further.
+                </p>
+                <p>
+                    First, we need to look at if there would be some missing data.
+                </p>
+                <img src="https://s2.loli.net/2022/09/29/ZvoXEdkegGunQiq.png">
+                <span>Figure 1.1</span>
+                <p>
+                    This is a bar plot that shows all the missing variable in the dataset. Each bar stands for each variable, while the height in the x-axis represents the missing percentage sorted by value. The plot indicates that the geo and description variable are missing.
+                </p>
+
+                <img src="https://s2.loli.net/2022/09/29/1tgUfPSQwBErJv4.png">
+                <span>Figure 2.1</span>
+                <p>
+                    A bar plot shows the top 3 languages that are widely used in tweets. The top3N languages with the most usage are English, Spanish, and Portuguese.
+                </p>
+                <img src="https://s2.loli.net/2022/09/29/3VxO7rL8NBSQJ1p.png">
+                <p>
+                    From the qualitative data description, the two variables are both severely left-skewed, which means the 1-th percentile even equals to the 3-th percentile. We can find it from the box plot below.
+                </p>
+                <img src="https://s2.loli.net/2022/09/29/EvsHqe2gjhpu6aG.png">
+                <img src="https://s2.loli.net/2022/09/29/nep4Uh7WdgIQv51.png">
+
+                <img src="https://s2.loli.net/2022/09/29/ODWXqHNc3BFarlU.png">
+                <p>
+                    We can specify the distribution of the length of each tweets through the hist plot. Since there may be some intricate relationship between the length of the tweets and aggresiveness of them. Thereafer, I diffentiate with the two labels, the label 0 means
+                    that the text is non-aggressive and the label 1 means the tweet is aggressive.
+                </p>
+                <img src="https://s2.loli.net/2022/09/29/FmT7DXRy5pEOlLH.png">
+                <p>
+                    Finally, plotting a wordcloud chart can help us understand what kind of words are most frequently used in all tweets that count.
+
+                </p>
+            </div>
+
+        </div>
+
+
+    </section>
+
+
+
+</body>
+
+</html>

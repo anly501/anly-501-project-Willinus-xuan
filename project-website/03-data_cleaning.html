@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data Cleaning</title>
+    <link rel="stylesheet" href="./project.css">
+</head>
+
+<body>
+    <!-- homepage返回 contact联系方式 github网站 code查看-->
+    <header>
+        <div class="su-brand-bar su-brand-bar--default">
+            <div class="header-container">
+                <div class="header-leftside">
+                    <a class="su-brand-bar__logo" href="https://www.georgetown.edu/">Georgetown University</a>
+                </div>
+
+                <div class="header-rightside">
+                    <a class="su-brand-bar__logo" href="http://haoxuan-weng.georgetown.domains/501-project-website/index.html">
+                        Return to profile
+                    </a>
+                    <a class="su-brand-bar__logo code" href="https://github.com/anly501/anly-501-project-Willinus-xuan">
+                        Browse code 
+                    </a>
+                    <a class="su-brand-bar__logo code" href="https://github.com/anly501/anly-501-project-Willinus-xuan">
+                        Preview dataset
+                    </a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <section class="banner">
+        <div class="left-side">
+            <img src="https://images.unsplash.com/photo-1663051957237-8da7729a1c15?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80" alt="project-overview">
+        </div>
+        <div class="content-container">
+            <div class="subject">
+                ANLY 501 Data Science And Analytics
+            </div>
+            <div class='research-name'>
+                <h1>
+                    Automatic Cyberbulleying detect
+                </h1>
+            </div>
+        </div>
+    </section>
+
+    <section class="wrapper">
+        <div style="position:sticky;top: 300px;float: left;max-width: 25%;">
+            <nav class="bx--tableofcontents__desktop" data-autoid="dds--tableofcontents__desktop">
+                <ul>
+                    <li class="bx--tableofcontents__desktop__item"><a href="http://haoxuan-weng.georgetown.domains/501-project-website/introduction.html">About this project</a></li>
+                    <li class="bx--tableofcontents__desktop__item bx--tableofcontents__desktop__item--active data_collection"><a href="http://haoxuan-weng.georgetown.domains/501-project-website/data_collection.html" aria-current="location">Data collection</a></li>
+                    <li class="bx--tableofcontents__desktop__item"><a href="#creativity-at-work">Data Cleaning</a></li>
+                    <li class="bx--tableofcontents__desktop__item"><a href="#trials">Exploring Data</a></li>
+                    <li class="bx--tableofcontents__desktop__item"><a href="#trials">Naïve Bayes</a></li>
+                    <li class="bx--tableofcontents__desktop__item"><a href="#trials">Decision Trees</a></li>
+                    <li class="bx--tableofcontents__desktop__item"><a href="#trials">SVM</a></li>
+                    <li class="bx--tableofcontents__desktop__item"><a href="#trials">Clustering</a></li>
+                    <li class="bx--tableofcontents__desktop__item"><a href="#trials">ARM and Networking</a></li>
+                    <li class="bx--tableofcontents__desktop__item"><a href="#trials">Conclusions</a></li>
+                </ul>
+            </nav>
+        </div>
+
+        <div class="wrapper-content">
+            <h1>2.Data Cleaning</h1>
+            <div>
+                <p>
+                    After collecting data through twitter API and public datasets online, we need to design a pipeline to clean through the data in steps. Therefore, the preprocessed data can be used to explore deeper with EDA and modeling.
+                </p>
+                <p>
+                    There are two hold-out datasets that I used, so we need to both process them into clean ones.
+                </p>
+                <h2>Cleaning method</h2>
+                <p>
+                    Since the words contains comma, whitesplace, and other unrelated content between each of them, the regular expression and built-in python package called NLTK are largely used in this research. There are many useful funcitons such as word_tokenize and
+                    WordNetLemmatizer that are incredibly effective to process raw data.
+                </p>
+
+                <p>
+                    For the first one that I collect through tweepy, my experienment designs to analyze tweets in lieu of retweets or reply, so we first need to exclude all tweets that contain 'RT' strings. Besides, the variable that contains geographical information is
+                    mainly useless in terms of this experiement, thus deleting it.
+                </p>
+                <img src="https://s2.loli.net/2022/09/29/Svc3sWpzjIqYdVr.png">
+                <span>Figure 1.1</span>
+                <p>
+                    Also, all the texts require a pipeline to preprocess them into clean format. I build a pipeline function to exclude the stopwords, lemmatize the words, stemmetize the words further, and also leverage the regular regression to cut off the irrelated information.
+                </p>
+                <img src="https://s2.loli.net/2022/09/29/ji8nMtHlrZLkWCo.png">
+                <span>Figure 1.2</span>
+                <p>
+                    For the dataset collected from public library, it is preprocessed in the same way. However, for the description variable in the first dataset, there are some emotions and pictures left to be preocessed latter for a proper use.
+                </p>
+
+
+
+            </div>
+
+        </div>
+
+
+    </section>
+
+
+
+</body>
+
+</html>

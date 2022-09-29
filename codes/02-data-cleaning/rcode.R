@@ -1,0 +1,24 @@
+library('tidyverse')
+library('dplyr')
+library('tokenizers')
+library('dlookr')
+library('classInt')
+# read the dataframe that scraped through twitter api
+df <- read.csv('../codes/01-data-collection/twitter_scrape.csv')
+
+df %>% group_by('lang') %>% summarize(likes = mean(retweet_counts))
+df$text = sapply(df$text,tokenize_sentences)
+
+df$length = sapply(df$text,tokenize_words)
+df_out = df[grep("RT",df$text),]
+df_out = df_out[grep('en',df_out$lang),]
+
+# rank the dataframe by the column of likes
+df_out <- arrange(df_out,desc(likes))
+
+df_out <- df_out %>%  mutate(lang,lang = as.factor(lang))
+
+#to make the continuous variable into categorical variable
+df_out$likes <- binning(df_out$likes,nbins=4,type='kmeans',labels = c("1", "2", "3", "4"))
+write.csv(df_out,'./write_byr.csv')
+# I do not have much qualitative or labled variable so the code is short
