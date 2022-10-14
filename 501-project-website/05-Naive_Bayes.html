@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Naive Bayes</title>
+    <link rel="stylesheet" href="./project.css">
+</head>
+
+<body>
+    <!-- homepage返回 contact联系方式 github网站 code查看-->
+    <header>
+        <div class="su-brand-bar su-brand-bar--default">
+            <div class="header-container">
+                <div class="header-leftside">
+                    <a class="su-brand-bar__logo" href="https://www.georgetown.edu/">Georgetown University</a>
+                </div>
+
+                <div class="header-rightside">
+                    <a class="su-brand-bar__logo" href="http://haoxuan-weng.georgetown.domains/501-project-website/index.html">
+                        Home
+                    </a>
+                    <a class="su-brand-bar__logo code" href="https://github.com/anly501/anly-501-project-Willinus-xuan">
+                        Code
+                    </a>
+                    <a class="su-brand-bar__logo code" href="https://github.com/anly501/anly-501-project-Willinus-xuan">
+                        Data
+                    </a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <section class="banner">
+        <div class="left-side">
+            <img src="https://images.unsplash.com/photo-1663051957237-8da7729a1c15?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80" alt="project-overview">
+        </div>
+        <div class="content-container">
+            <div class="subject">
+                ANLY 501 Data Science And Analytics
+            </div>
+            <div class='research-name'>
+                <h1>
+                    Automatic Cyberbulleying detect
+                </h1>
+            </div>
+        </div>
+    </section>
+
+    <section class="wrapper">
+        <div style="position:sticky;top: 300px;float: left;max-width: 25%;">
+            <nav class="bx--tableofcontents__desktop" data-autoid="dds--tableofcontents__desktop">
+                <ul>
+                    <li class="bx--tableofcontents__desktop__item"><a href="http://haoxuan-weng.georgetown.domains/501-project-website/01-introduction.html">About this project</a></li>
+                    <li class="bx--tableofcontents__desktop__item bx--tableofcontents__desktop__item--active"><a href="http://haoxuan-weng.georgetown.domains/501-project-website/02-data_collection.html" aria-current="location">Data collection</a></li>
+                    <li class="bx--tableofcontents__desktop__item"><a href="http://haoxuan-weng.georgetown.domains/501-project-website/03-data_cleaning.html">Data Cleaning</a></li>
+                    <li class="bx--tableofcontents__desktop__item"><a href="http://haoxuan-weng.georgetown.domains/501-project-website/04-data_exploring.html">Exploring Data</a></li>
+                    <li class="bx--tableofcontents__desktop__item"><a href="#trials">Naïve Bayes</a></li>
+                    <li class="bx--tableofcontents__desktop__item"><a href="#trials">Decision Trees</a></li>
+                    <li class="bx--tableofcontents__desktop__item"><a href="#trials">SVM</a></li>
+                    <li class="bx--tableofcontents__desktop__item"><a href="#trials">Clustering</a></li>
+                    <li class="bx--tableofcontents__desktop__item"><a href="#trials">ARM and Networking</a></li>
+                    <li class="bx--tableofcontents__desktop__item"><a href="#trials">Conclusions</a></li>
+                </ul>
+            </nav>
+        </div>
+
+        <div class="wrapper-content">
+            <h1>1.Prepare the data</h1>
+
+            <div>
+                <p>
+                    My goal when using NB is to build (train) a classification model and then use it to make predictions on your test data. In this step, I need to use the record data and text data separately to build the Naive Bayes model.Therefore, after I prepare and
+                    clean my data, you will need to separate it into TRAINING and TESTING sets.
+                </p>
+                <p>
+                    This section devides into two because we need to use the record data and text data seprately.
+                </p>
+                <p>
+                    This is the code that I use to divide the data into train and test groups in R. The same works in Python, you can check my code in the dictionary.
+                </p>
+                <img src="https://s2.loli.net/2022/10/14/xojt76hTbWaCsK3.png">
+                <span>Figure 1.1</span>
+            </div>
+
+            <h1>2.Naïve Bayes (NB) in R with Labeled Record Data</h1>
+
+            <div>
+                <p>
+                    My goal is to analyze how to detect cyberviolence automatically. In terms of the variable, I associate each tweets with account id, so the record data within in the account profile may be useful to enhance the model accuracy. Among them, the numbers of
+                    followers, the numbers of retweet, and word length and so foth may have some correlation with the ylabel.
+                </p>
+                <p>
+                    As you can see in the Figure 2.1, the confusion matrix of record data indicates that my model behaves very badly. We can see the true positve rate and true negative rate are both very low, only 16%. It indicates that my model actually cannot fully predict
+                    and classify whether a context has cyberviolence tendency or not.
+                </p>
+                <img src="https://s2.loli.net/2022/10/14/lRdrTUsSE7OVt3X.png">
+                <span>Figure 2.1</span>
+                <p>
+                    I also plot a roc curve to further substantiate my argument and evaluate my Naive Bayes model.
+                </p>
+                <p>
+                    As you can see in the Figure 2.2, the auc score is pretty low, only 0.4562. It actually indicates that the probability to predict the label correctly is small. The perfect Roc curve should plot in the upper left side, but this definitely is not shown
+                    in my graph.
+                </p>
+                <img src="https://s2.loli.net/2022/10/14/ESNctO5KvFh4Rs1.png">
+                <span>Figure 2.2</span>
+                <p>
+                    Above all, the experiment shows that the record data has low correlation with the label, which is the cyberviolence property. I might combine the text data, also use some other key indicators of record data to enhance my accuracy.
+                </p>
+
+            </div>
+
+            <h1>3.Naïve Bayes (NB) in Python with Labeled Text Data</h1>
+            <div>
+                <p>
+                    First of all, consider my variables have discrete property, so the model I use is Gaussian Naive Bayes instead of Multinomial. The text exerts an indispensable role on the overall behavior of the label prediction, so it should have a very high accuracy.
+                </p>
+
+                <p>
+                    I mainly use three indicators to evaluate the Multinomial Naive Bayes model.
+                </p>
+                <p>
+                    As you can see in the Figure 3.1, the confusion matrix greatly illustrates that my model can predict the true positive label very well. However, it shows that many negative labels also wrongly falls into the false positve categories. which cause the type
+                    I error. This kind of error should be mostly avoided in the cyberviolence detection, because it would wrongly erase many non-violence text if using this model.
+                </p>
+                <img src="https://s2.loli.net/2022/10/14/QW3Gjwx7NRCdPAh.png">
+                <span>Figure 3.1</span>
+                <p>
+                    You can also see in the Figure 3.2,this learning curve indicates us that the model is under-fitting, and we require more training size. Since as the training_example increases, the training_score constantly increase and do not halt at a certain point.
+                    Besides, The model shows large error in both variance and bias, because the gap between the two curves is large and need to be narrowed.
+                </p>
+                <img src="https://s2.loli.net/2022/10/14/jt3fFeT7qOGvAPm.png">
+                <span>Figure 3.2</span>
+                <p>
+                    Lastly, in the roc curve,AUC is a metric that utilizes probabilities of the class predictions, we can be more confident in a model that has a higher AUC score than one with a lower score even if they have similar accuracies. In this graph of the model,
+                    the Auc score is not pretty high, which means that the model only does a fair job in classification
+                </p>
+                <img src="https://s2.loli.net/2022/10/14/fiR2r97oXz8Zp4e.png">
+                <span>Figure 3.3</span>
+
+            </div>
+
+
+
+        </div>
+
+
+    </section>
+
+
+
+</body>
+
+</html>

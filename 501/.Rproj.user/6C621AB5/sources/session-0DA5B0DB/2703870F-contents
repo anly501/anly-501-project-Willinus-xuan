@@ -1,0 +1,55 @@
+library(tidyverse)
+library(dplyr)
+#import data
+loans_data = read_csv('./loans_py.csv')
+district_data = read_csv('./district_py.csv')
+clients_data = read_csv('../data/clients.csv')
+accounts_data = read_csv('../data/accounts.csv')
+cards_data = read_csv('../data/cards.csv')
+links_data = read_csv('../data/links.csv')
+payment_orders_data =read_csv('../data/payment_orders.csv')
+transactions_data = read_csv('../data/transactions.csv')
+##rename each columns in the different tables
+colnames(accounts_data)[which(names(accounts_data) == "id")] = "account_id"
+colnames(links_data)[which(names(links_data) == "id")] = "link_id"
+colnames(payment_orders_data)[which(names(payment_orders_data) == "id")] = "payment_orders_id"
+colnames(transactions_data)[which(names(transactions_data) == "id")] = "transactions_id"
+colnames(cards_data)[which(names(cards_data) == "id")] = "cards_id"
+colnames(district_data)[which(names(district_data)=='id')] = "district_id"
+
+data = merge(accounts_data,district_data[c('district_id', 'name')],by = 'district_id',all.x= TRUE)
+data = data[, colnames(data)[c(1:2,5,3,4)]]
+colnames(data)[which(names(data) == "date")] = "open_date"
+#deleting the unwanted columns
+drop = c('district_id')
+data = data[,!(names(data) %in% drop)]
+#sort data to account_id
+data = data[order(data$account_id),]
+link_card_data = merge(links_data,cards_data,by='link_id',all.x= TRUE)
+##group by account_id and card_type 
+link_card_data$cards_id[!is.na(link_card_data$cards_id)] = 1
+count = link_card_data %>% group_by(account_id) %>% summarise(num_customers = n(),credit_cards = sum(cards_id))
+data = merge(data,count,by='account_id',all.x= TRUE)
+
+##merge loan_amounts and loan_payments from loans_data to data
+data = merge(data,loans_data,by='account_id', all.x = TRUE)
+data$loan[!is.na(data$loan_amount)] = "T"
+data$loan[is.na(data$loan_amount)] = "F"
+drop = c('loan_term_type','date','loan_id')
+data = data[,!(names(data) %in% drop)]
+##add loan  column after credit_cards
+data = data[, colnames(data)[c(1:6,12,7:11)]]
+#adding max_withdrawal and min_withdrawal  column to data with transactions_data
+debit_card = transactions_data[transactions_data$type=="debit", ]
+debit = debit_card %>% group_by(account_id) %>% summarise(max_withdrawal = max(amount),min_withdrawal = min(amount))
+data = merge(data,debit,by='account_id', all.x = TRUE)
+##adding cc_payments column to data with transactions_data
+credit_card = debit_card[debit_card$method == "credit card", ]
+credit = credit_card %>% group_by(account_id) %>% summarise(cc_payments = n())
+data = merge(data,credit,by='account_id', all.x = TRUE)
+##adding max_balance column to data with transactions_data
+account_balance = transactions_data%>%group_by(account_id)%>%summarise(max_balance=max(balance),
+                                                                       min_balance=min(balance))
+data = merge(data, account_balance, by = "account_id", all.x = TRUE)
+##export the final data to csv
+write_csv(data,"./codes-and-outputs/analytical_r.csv")
