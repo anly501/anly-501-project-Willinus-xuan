@@ -224,3 +224,13 @@ ul {
 #ppp {
     color: #007aff;
 }
+
+.wrapper-content img {
+    margin: 0 auto;
+    text-align: center;
+    vertical-align: middle
+}
+
+.wrapper-content p {
+    display: block;
+}

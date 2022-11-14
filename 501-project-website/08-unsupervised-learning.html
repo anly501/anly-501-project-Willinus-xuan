@@ -175,8 +175,71 @@
                     splits of clusters. By drawing two horizontal line, we can select the numbers of optimal clusters by counting how many vertical lines pass the two horizontal lines.
                 </p>
                 <img src="https://s2.loli.net/2022/11/14/L6PTYk1UVuabtfz.png">
+                <span> Figure 2</span>
+                <h2>
+                    Final results
+                </h2>
+                <p>
+                    After the hyperparameters tuning process, we can later on select the optimal numbers of clusters. Principal component analysis, short for PCA, can decompose the data into 2D, thereafter enabling visulization in 2D.
+                </p>
             </div>
 
+            <div>
+                <h1> 4.Results</h1>
+
+                <img src="https://s2.loli.net/2022/11/14/8uLOPb4DaSx5pig.png">
+
+                <img src="https://s2.loli.net/2022/11/14/XCGqyYMhd2BveuR.png">
+
+                <img src="https://s2.loli.net/2022/11/14/lBwktHqC7GLioU1.png">
+                <p>
+                    For the Kmeans method, the optimal numbers of clusers is 5.
+                </p>
+                <p>
+                    For the DBSCAN method, the hyperparameters are chosen based on grid search. Once excluding the outlier, there is only one cluster of the dataset. Therefore, this density-based algorithm does not work very well on this dataset.
+                </p>
+                <p>
+                    For the agglomerative method, the final numbers of clusters chosen is 3.
+                </p>
+            </div>
+
+            <div>
+                <h1>
+                    5. Conclusions
+                </h1>
+                <p>
+                    In this tab, we have used three separate clustering model with the best hyperparameters to conduct unsupervised learning. Clustering is not a suitable candidate to meet our demand. This is mainly because the result is not what we want.
+                </p>
+                <p>
+                    The potential association underneath the dataset derived from the Unsupervised learning is hard to explanable sometimes.
+                </p>
+                <p>
+                    Of the three methods, the k-means cluters the whole dataset into 5 groups according to the distribution of the 6 numerical variable. The highlight here is that the hierarchical method is the best among this three if evaluated by the true distribution
+                    of the y label. It can to some extent, be similar to the actual cyberviolence distribution in the text.
+                </p>
+                <p>
+                    Therefore, the hierarchical method performs the best among the three methods. But we should go deeper into the exact clustering analysis to find deeper association.
+                </p>
+            </div>
+
+            <div>
+                <h1>
+                    6. References
+                </h1>
+
+                <p>
+                    [1] Shaik, J. (2020, September 18). Practical implementation of K-means, hierarchical, and DBSCAN clustering on dataset with… Medium. Retrieved November 13, 2022, from https://medium.com/analytics-vidhya/practical-implementation-of-k-means-hierarchical-and-dbscan-clustering-on-dataset-with-bd7f3d13ef7f
+                </p>
+                <p>
+                    [2] https://medium.com/towards-data-science/how-dbscan-works-and-why-should-i-use-it-443b4a191c80
+                </p>
+                <p>
+                    [3] https://towardsdatascience.com/cheat-sheet-to-implementing-7-methods-for-selecting-optimal-number-of-clusters-in-python-898241e1d6ad
+                </p>
+                <p>
+                    [4] Brus, P. (2021, July 29). Clustering: How to find hyperparameters using inertia. Medium. Retrieved November 13, 2022, from https://medium.com/towards-data-science/clustering-how-to-find-hyperparameters-using-inertia-b0343c6fe819
+                </p>
+            </div>
 
 
 
