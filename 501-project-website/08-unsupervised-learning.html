@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Unsupervised Learning</title>
+    <link rel="stylesheet" href="./project.css">
+</head>
+
+<body>
+    <!-- homepage返回 contact联系方式 github网站 code查看-->
+    <header>
+        <div class="su-brand-bar su-brand-bar--default">
+            <div class="header-container">
+                <div class="header-leftside">
+                    <a class="su-brand-bar__logo" href="https://www.georgetown.edu/">Georgetown University</a>
+                </div>
+
+                <div class="header-rightside">
+                    <a class="su-brand-bar__logo" href="http://haoxuan-weng.georgetown.domains/501-project-website/index.html">
+                        Home
+                    </a>
+                    <a class="su-brand-bar__logo code" href="https://github.com/anly501/anly-501-project-Willinus-xuan">
+                        Code
+                    </a>
+                    <a class="su-brand-bar__logo code" href="https://github.com/anly501/anly-501-project-Willinus-xuan">
+                        Data
+                    </a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <section class="banner">
+        <div class="left-side">
+            <img src="https://images.unsplash.com/photo-1663051957237-8da7729a1c15?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80" alt="project-overview">
+        </div>
+        <div class="content-container">
+            <div class="subject">
+                ANLY 501 Data Science And Analytics
+            </div>
+            <div class='research-name'>
+                <h1>
+                    Automatic Cyberbulleying detect
+                </h1>
+            </div>
+        </div>
+    </section>
+
+    <section class="wrapper">
+        <div style="position:sticky;top: 300px;float: left;max-width: 25%;">
+            <nav class="bx--tableofcontents__desktop" data-autoid="dds--tableofcontents__desktop">
+                <ul>
+                    <li class="bx--tableofcontents__desktop__item"><a href="http://haoxuan-weng.georgetown.domains/501-project-website/01-introduction.html">About this project</a></li>
+                    <li class="bx--tableofcontents__desktop__item bx--tableofcontents__desktop__item--active"><a href="http://haoxuan-weng.georgetown.domains/501-project-website/02-data_collection.html" aria-current="location">Data collection</a></li>
+                    <li class="bx--tableofcontents__desktop__item"><a href="http://haoxuan-weng.georgetown.domains/501-project-website/03-data_cleaning.html">Data Cleaning</a></li>
+                    <li class="bx--tableofcontents__desktop__item"><a href="http://haoxuan-weng.georgetown.domains/501-project-website/04-data_exploring.html">Exploring Data</a></li>
+                    <li class="bx--tableofcontents__desktop__item"><a href="http://haoxuan-weng.georgetown.domains/501-project-website/05-Naive_Bayes.html">Naïve Bayes</a></li>
+                    <li class="bx--tableofcontents__desktop__item"><a href="#trials">Decision Trees</a></li>
+                    <li class="bx--tableofcontents__desktop__item"><a href="#trials">SVM</a></li>
+                    <li class="bx--tableofcontents__desktop__item"><a href="http://haoxuan-weng.georgetown.domains/501-project-website/08-unsupervised-learning.html">Clustering</a></li>
+                    <li class="bx--tableofcontents__desktop__item"><a href="#trials">ARM and Networking</a></li>
+                    <li class="bx--tableofcontents__desktop__item"><a href="#trials">Conclusions</a></li>
+                </ul>
+            </nav>
+        </div>
+
+        <div class="wrapper-content">
+            <h1>1.Introduction</h1>
+
+            <div>
+                <p>
+                    I leverage numerical data to apply clustering analysis. My final project is to predict cyberviolence existance in the text. Normally speaking, the people who conduct the texts are high correlated to if a text is violent or not. The important features
+                    of twitter account are, therefore, very useful to detect the cyberviolence.
+                </p>
+                <p>
+                    I believe, by using clustering analysis, the unsupervised learning can reflect key observations. For example, does the counts of friends and followers correlate with the cyberviolence detection?
+                </p>
+                <p>
+                    Various clustering methods including partition methods, density methods, and hierarchical methods are applied to conduct the custering analysis.
+                </p>
+            </div>
+
+            <h1>2.Theory</h1>
+
+            <div>
+                <h2>
+                    2.1 kmeans
+                </h2>
+                <p>
+                    Kmeans is a centroid-based clustering algorithm, where we calculate the distance between the centroid and every other data point in the dataset. what does "Means" come from? Allocating each data point to the nearest clusters, we then recalculate the centroid
+                    by using the average of all the data points in the same groups. The algorithm allows different distance metrixs, such as manhattan distance, euclidean distance and so forth.
+                    <p>
+                        The limitatoin is that the numbers of clusters are required to be appointed beforehand, and the randomnization of different centroids allocation may direct different results. Besides, the categorical data is not allowed to be used for clustering, for
+                        calculating such distance is meaningless.
+                    </p>
+                </p>
+                <h2>
+                    2.2 DBSCAN
+                </h2>
+
+                <p>
+                    dbscan is a density-based algorithm, in lieu of partition-based methods. Let’s think in a practical use of DBSCAN. Using this cluster derived from density distributin of twitter users, we can find similarities between different users. There are two parameters
+                    of this algorithm. While eps specifies how close points should be to each other to be considered a part of a cluster.eps: specifies how close points should be to each other to be considered a part of a cluster, the second parameter
+                    called minPoints specifies the minimum numbers of points needed to form a cluster.
+                </p>
+                <p>
+                    What’s nice about DBSCAN is that you don’t have to specify the number of clusters to use it. However, the cons of this algorithm is that parameters like the epsilon for DBSCAN or for the minPoints are less intuitive to reason about compared to the number
+                    of clusters parameter for K-Means, so it’s more difficult to choose good initial parameter values for these algorithms. We are required to have a deeper understanding of the data distribution, so that we can estimate the parameters
+                    better in the first place.
+                </p>
+
+                <h2>
+                    2.3 hierarchical clustering
+                </h2>
+                <p>
+                    Generally speaking, there are two hierarchical clustering methods. The first one is called Agglomerative. The core essence here is that each data point is considered to be a single cluster, and later group together to form different clusters. Without
+                    making any assumptions of particular number of clusters, it can not be constricted by the problems faced by kmeans algorithm. But the disadvantage for Agglomerative is that it is too slow for large data sets(O(𝑛2 log(𝑛))). Therefore,
+                    in real-life setting, as the size of the data goes too large, the density based methods as DBSCAN may win over this hierarchical clustering method. It is true that even I only have 2000+ data points, the time consumes to conduct hierarchical
+                    clustering is still long-awaited.
+                </p>
+                <p>
+                    The other one is called Divisive, which is just the opposite of Agglomerative-we consider all the data points as a single cluster. However, it is rather more rarely to use in real-life setting compared to the Agglomerative.
+                </p>
+
+                <h2>
+                    2.4 elbow method
+                </h2>
+                <p>
+                    Hyperparameters are model configurations properties that define the model and with tuning the hyperparameters, the unsupervised learning can perform differently. For example, considering numbers of clusters, the elbow method is a descent evaluation matrix.
+                    Elbow Method is an empirical method to find the optimal number of clusters for a dataset.
+                </p>
+                <p>
+                    We can pick the value of k, where the distortions or inertia falls suddenly.
+                </p>
+
+                <h2>
+                    2.5 Silhouette Method
+                </h2>
+                <p>
+                    Since the unsupervised learning is to minimize the distance of similar data points in the same cluster, whereas maximize the distance of data points from different clusters. In such sense, the silhouette method computes silhouette coefficients of each
+                    point that measure how much a point is similar to its own cluster compared to other clusters. By averaging each of the value, we can get the silhouette score. The value of the silhouette ranges between [1, -1]. To be more specific,
+                    if most objects have a high value, then the clustering configuration is appropriate. If many points have a low or negative value, then the clustering configuration may have too many or too few clusters.
+                </p>
+            </div>
+
+            <div>
+                <h1> 3. Method</h1>
+                <h2>
+                    3.1 data selection
+                </h2>
+                <p>
+                    By excluding the target variable and text data, there remains 6 numeric varibles on the table, including, id, follower_count, friends_count, retweet_count, favorite_count and word_length. Variabel Id can be transformed into timetamp, which reflects the
+                    account creating time and should not be removed. The experiment further leverages these 6 variables to mine potential correlations underneath the data.
+                </p>
+
+                <h2>
+                    3.2 Hyper-parameter tuning
+                </h2>
+                <p>
+                    Kmeans: I leverage elbow method to determine the optimal numbers of clusters. As you can see in the charts, when the k equals 5, the indicators of inertia and distortion changes the most suddenly.
+                </p>
+                <img src="https://s2.loli.net/2022/11/14/LpViH2M6dvhOrn1.png">
+                <span> Figure 1</span>
+
+                <p>
+                    DBSCAN: I leverage Silhouette score to evaluate different combinations of epsilon and minSamples. The final result turns out that choosing the epsilon of 3.25 and minSamples of 10, the average silhouette score performs the best and form one cluster when
+                    ignoring the noise.
+                </p>
+
+                <p>
+                    Agglomerative: This technique is specific to the agglomerative hierarchical method of clustering. To get the optimal number of clusters for hierarchical clustering, we make use a dendrogram which is tree-like chart that shows the sequences of merges or
+                    splits of clusters. By drawing two horizontal line, we can select the numbers of optimal clusters by counting how many vertical lines pass the two horizontal lines.
+                </p>
+                <img src="https://s2.loli.net/2022/11/14/L6PTYk1UVuabtfz.png">
+            </div>
+
+
+
+
+
+
+
+        </div>
+
+
+    </section>
+
+
+
+</body>
+
+</html>
