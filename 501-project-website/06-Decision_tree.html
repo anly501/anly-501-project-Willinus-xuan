@@ -11,6 +11,7 @@
     <meta name="author" content="Haoxuan(Will) Weng">
 
     <title>Decision Tree</title>
+    <link rel="stylesheet" href="./project.css">
     <style>
         code {
             white-space: pre-wrap;
@@ -317,6 +318,27 @@
 </head>
 
 <body>
+    <header>
+        <div class="su-brand-bar su-brand-bar--default">
+            <div class="header-container">
+                <div class="header-leftside">
+                    <a class="su-brand-bar__logo" href="https://www.georgetown.edu/">Georgetown University</a>
+                </div>
+
+                <div class="header-rightside">
+                    <a class="su-brand-bar__logo" href="http://haoxuan-weng.georgetown.domains/501-project-website/index.html">
+                        Home
+                    </a>
+                    <a class="su-brand-bar__logo code" href="https://github.com/anly501/anly-501-project-Willinus-xuan">
+                        Code
+                    </a>
+                    <a class="su-brand-bar__logo code" href="https://github.com/anly501/anly-501-project-Willinus-xuan">
+                        Data
+                    </a>
+                </div>
+            </div>
+        </div>
+    </header>
 
     <div id="quarto-content" class="page-columns page-rows-contents page-layout-article">
         <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
@@ -349,6 +371,7 @@
                 <p>In this tab, since the simplexity and flexibility of Decision Tree, text data are leveraged with this classificaiton model, to predict the cyberviolence in the text</p>
                 <p><img src="https://s2.loli.net/2022/10/29/bqhYlN2ACQOs7d6.png"></p>
                 <div class="cell" data-execution_count="21">
+                    <h2> import the packages</h2>
                     <details>
                         <summary>Code</summary>
                         <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co">#import the libraries</span></span>
@@ -374,6 +397,7 @@
                     </details>
                 </div>
                 <div class="cell" data-execution_count="22">
+                    <h2> The overview of dataset</h2>
                     <details>
                         <summary>Code</summary>
                         <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># walk the downloaded dataset</span></span>
@@ -501,9 +525,11 @@
 <span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">"Class"</span>,fontsize<span class="op">=</span><span class="dv">16</span>)</span>
 <span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">"Counts"</span>,fontsize<span class="op">=</span><span class="dv">16</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
                     </details>
+
                     <div class="cell-output cell-output-display" data-execution_count="24">
                         <pre><code>Text(0, 0.5, 'Counts')</code></pre>
                     </div>
+
                     <div class="cell-output cell-output-display">
                         <p><img src="hate_speech_files/figure-html/cell-5-output-2.png" class="img-fluid"></p>
                     </div>

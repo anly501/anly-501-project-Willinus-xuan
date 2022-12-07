@@ -1,16 +1,324 @@
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Naive Bayes</title>
+
+    <meta charset="utf-8">
+    <meta name="generator" content="quarto-1.2.247">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+    <meta name="author" content="Haoxuan(Will) Weng">
+
+    <title>Cyberviolence</title>
     <link rel="stylesheet" href="./project.css">
+
+    <style>
+        code {
+            white-space: pre-wrap;
+        }
+        
+        span.smallcaps {
+            font-variant: small-caps;
+        }
+        
+        div.columns {
+            display: flex;
+            gap: min(4vw, 1.5em);
+        }
+        
+        div.column {
+            flex: auto;
+            overflow-x: auto;
+        }
+        
+        div.hanging-indent {
+            margin-left: 1.5em;
+            text-indent: -1.5em;
+        }
+        
+        ul.task-list {
+            list-style: none;
+        }
+        
+        ul.task-list li input[type="checkbox"] {
+            width: 0.8em;
+            margin: 0 0.8em 0.2em -1.6em;
+            vertical-align: middle;
+        }
+        
+        pre>code.sourceCode {
+            white-space: pre;
+            position: relative;
+        }
+        
+        pre>code.sourceCode>span {
+            display: inline-block;
+            line-height: 1.25;
+        }
+        
+        pre>code.sourceCode>span:empty {
+            height: 1.2em;
+        }
+        
+        .sourceCode {
+            overflow: visible;
+        }
+        
+        code.sourceCode>span {
+            color: inherit;
+            text-decoration: inherit;
+        }
+        
+        div.sourceCode {
+            margin: 1em 0;
+        }
+        
+        pre.sourceCode {
+            margin: 0;
+        }
+        
+        @media screen {
+            div.sourceCode {
+                overflow: auto;
+            }
+        }
+        
+        @media print {
+            pre>code.sourceCode {
+                white-space: pre-wrap;
+            }
+            pre>code.sourceCode>span {
+                text-indent: -5em;
+                padding-left: 5em;
+            }
+        }
+        
+        pre.numberSource code {
+            counter-reset: source-line 0;
+        }
+        
+        pre.numberSource code>span {
+            position: relative;
+            left: -4em;
+            counter-increment: source-line;
+        }
+        
+        pre.numberSource code>span>a:first-child::before {
+            content: counter(source-line);
+            position: relative;
+            left: -1em;
+            text-align: right;
+            vertical-align: baseline;
+            border: none;
+            display: inline-block;
+            -webkit-touch-callout: none;
+            -webkit-user-select: none;
+            -khtml-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+            padding: 0 4px;
+            width: 4em;
+            color: #aaaaaa;
+        }
+        
+        pre.numberSource {
+            margin-left: 3em;
+            border-left: 1px solid #aaaaaa;
+            padding-left: 4px;
+        }
+        
+        div.sourceCode {}
+        
+        @media screen {
+            pre>code.sourceCode>span>a:first-child::before {
+                text-decoration: underline;
+            }
+        }
+        
+        code span.al {
+            color: #ff0000;
+            font-weight: bold;
+        }
+        /* Alert */
+        
+        code span.an {
+            color: #60a0b0;
+            font-weight: bold;
+            font-style: italic;
+        }
+        /* Annotation */
+        
+        code span.at {
+            color: #7d9029;
+        }
+        /* Attribute */
+        
+        code span.bn {
+            color: #40a070;
+        }
+        /* BaseN */
+        
+        code span.bu {
+            color: #008000;
+        }
+        /* BuiltIn */
+        
+        code span.cf {
+            color: #007020;
+            font-weight: bold;
+        }
+        /* ControlFlow */
+        
+        code span.ch {
+            color: #4070a0;
+        }
+        /* Char */
+        
+        code span.cn {
+            color: #880000;
+        }
+        /* Constant */
+        
+        code span.co {
+            color: #60a0b0;
+            font-style: italic;
+        }
+        /* Comment */
+        
+        code span.cv {
+            color: #60a0b0;
+            font-weight: bold;
+            font-style: italic;
+        }
+        /* CommentVar */
+        
+        code span.do {
+            color: #ba2121;
+            font-style: italic;
+        }
+        /* Documentation */
+        
+        code span.dt {
+            color: #902000;
+        }
+        /* DataType */
+        
+        code span.dv {
+            color: #40a070;
+        }
+        /* DecVal */
+        
+        code span.er {
+            color: #ff0000;
+            font-weight: bold;
+        }
+        /* Error */
+        
+        code span.ex {}
+        /* Extension */
+        
+        code span.fl {
+            color: #40a070;
+        }
+        /* Float */
+        
+        code span.fu {
+            color: #06287e;
+        }
+        /* Function */
+        
+        code span.im {
+            color: #008000;
+            font-weight: bold;
+        }
+        /* Import */
+        
+        code span.in {
+            color: #60a0b0;
+            font-weight: bold;
+            font-style: italic;
+        }
+        /* Information */
+        
+        code span.kw {
+            color: #007020;
+            font-weight: bold;
+        }
+        /* Keyword */
+        
+        code span.op {
+            color: #666666;
+        }
+        /* Operator */
+        
+        code span.ot {
+            color: #007020;
+        }
+        /* Other */
+        
+        code span.pp {
+            color: #bc7a00;
+        }
+        /* Preprocessor */
+        
+        code span.sc {
+            color: #4070a0;
+        }
+        /* SpecialChar */
+        
+        code span.ss {
+            color: #bb6688;
+        }
+        /* SpecialString */
+        
+        code span.st {
+            color: #4070a0;
+        }
+        /* String */
+        
+        code span.va {
+            color: #19177c;
+        }
+        /* Variable */
+        
+        code span.vs {
+            color: #4070a0;
+        }
+        /* VerbatimString */
+        
+        code span.wa {
+            color: #60a0b0;
+            font-weight: bold;
+            font-style: italic;
+        }
+        /* Warning */
+    </style>
+
+
+    <script src="nb_files/libs/clipboard/clipboard.min.js"></script>
+    <script src="nb_files/libs/quarto-html/quarto.js"></script>
+    <script src="nb_files/libs/quarto-html/popper.min.js"></script>
+    <script src="nb_files/libs/quarto-html/tippy.umd.min.js"></script>
+    <script src="nb_files/libs/quarto-html/anchor.min.js"></script>
+    <link href="nb_files/libs/quarto-html/tippy.css" rel="stylesheet">
+    <link href="nb_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+    <script src="nb_files/libs/bootstrap/bootstrap.min.js"></script>
+    <link href="nb_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+    <link href="nb_files/libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js" integrity="sha512-c3Nl8+7g4LMSTdrm621y7kf9v3SDPnhxLNhcjFJbKECVnmZHTdo+IRO05sNLTH/D3vA6u1X32ehoLC7WFVdheg==" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script>
+    <script type="application/javascript">
+        define('jquery', [], function() {
+            return window.jQuery;
+        })
+    </script>
+
+
 </head>
 
 <body>
-    <!-- homepage返回 contact联系方式 github网站 code查看-->
     <header>
         <div class="su-brand-bar su-brand-bar--default">
             <div class="header-container">
@@ -20,23 +328,20 @@
 
                 <div class="header-rightside">
                     <a class="su-brand-bar__logo" href="http://haoxuan-weng.georgetown.domains/501-project-website/index.html">
-                        Home
-                    </a>
+                    Home
+                </a>
                     <a class="su-brand-bar__logo code" href="https://github.com/anly501/anly-501-project-Willinus-xuan">
-                        Code
-                    </a>
+                    Code
+                </a>
                     <a class="su-brand-bar__logo code" href="https://github.com/anly501/anly-501-project-Willinus-xuan">
-                        Data
-                    </a>
+                    Data
+                </a>
                 </div>
             </div>
         </div>
     </header>
 
     <section class="banner">
-        <div class="left-side">
-            <img src="https://images.unsplash.com/photo-1663051957237-8da7729a1c15?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80" alt="project-overview">
-        </div>
         <div class="content-container">
             <div class="subject">
                 ANLY 501 Data Science And Analytics
@@ -66,89 +371,536 @@
                 </ul>
             </nav>
         </div>
-
-        <div class="wrapper-content">
-            <h1>1.Prepare the data</h1>
-
-            <div>
-                <p>
-                    My goal when using NB is to build (train) a classification model and then use it to make predictions on your test data. In this step, I need to use the record data and text data separately to build the Naive Bayes model.Therefore, after I prepare and
-                    clean my data, you will need to separate it into TRAINING and TESTING sets.
-                </p>
-                <p>
-                    This section devides into two because we need to use the record data and text data seprately.
-                </p>
-                <p>
-                    This is the code that I use to divide the data into train and test groups in R. The same works in Python, you can check my code in the dictionary.
-                </p>
-                <img src="https://s2.loli.net/2022/10/14/xojt76hTbWaCsK3.png">
-                <span>Figure 1.1</span>
-            </div>
-
-            <h1>2.Naïve Bayes (NB) in R with Labeled Record Data</h1>
-
-            <div>
-                <p>
-                    My goal is to analyze how to detect cyberviolence automatically. In terms of the variable, I associate each tweets with account id, so the record data within in the account profile may be useful to enhance the model accuracy. Among them, the numbers of
-                    followers, the numbers of retweet, and word length and so foth may have some correlation with the ylabel.
-                </p>
-                <p>
-                    As you can see in the Figure 2.1, the confusion matrix of record data indicates that my model behaves very badly. We can see the true positve rate and true negative rate are both very low, only 16%. It indicates that my model actually cannot fully predict
-                    and classify whether a context has cyberviolence tendency or not.
-                </p>
-                <img src="https://s2.loli.net/2022/10/14/lRdrTUsSE7OVt3X.png">
-                <span>Figure 2.1</span>
-                <p>
-                    I also plot a roc curve to further substantiate my argument and evaluate my Naive Bayes model.
-                </p>
-                <p>
-                    As you can see in the Figure 2.2, the auc score is pretty low, only 0.4562. It actually indicates that the probability to predict the label correctly is small. The perfect Roc curve should plot in the upper left side, but this definitely is not shown
-                    in my graph.
-                </p>
-                <img src="https://s2.loli.net/2022/10/14/ESNctO5KvFh4Rs1.png">
-                <span>Figure 2.2</span>
-                <p>
-                    Above all, the experiment shows that the record data has low correlation with the label, which is the cyberviolence property. I might combine the text data, also use some other key indicators of record data to enhance my accuracy.
-                </p>
-
-            </div>
-
-            <h1>3.Naïve Bayes (NB) in Python with Labeled Text Data</h1>
-            <div>
-                <p>
-                    First of all, consider my variables have discrete property, so the model I use is Gaussian Naive Bayes instead of Multinomial. The text exerts an indispensable role on the overall behavior of the label prediction, so it should have a very high accuracy.
-                </p>
-
-                <p>
-                    I mainly use three indicators to evaluate the Multinomial Naive Bayes model.
-                </p>
-                <p>
-                    As you can see in the Figure 3.1, the confusion matrix greatly illustrates that my model can predict the true positive label very well. However, it shows that many negative labels also wrongly falls into the false positve categories. which cause the type
-                    I error. This kind of error should be mostly avoided in the cyberviolence detection, because it would wrongly erase many non-violence text if using this model.
-                </p>
-                <img src="https://s2.loli.net/2022/10/14/QW3Gjwx7NRCdPAh.png">
-                <span>Figure 3.1</span>
-                <p>
-                    You can also see in the Figure 3.2,this learning curve indicates us that the model is under-fitting, and we require more training size. Since as the training_example increases, the training_score constantly increase and do not halt at a certain point.
-                    Besides, The model shows large error in both variance and bias, because the gap between the two curves is large and need to be narrowed.
-                </p>
-                <img src="https://s2.loli.net/2022/10/14/jt3fFeT7qOGvAPm.png">
-                <span>Figure 3.2</span>
-                <p>
-                    Lastly, in the roc curve,AUC is a metric that utilizes probabilities of the class predictions, we can be more confident in a model that has a higher AUC score than one with a lower score even if they have similar accuracies. In this graph of the model,
-                    the Auc score is not pretty high, which means that the model only does a fair job in classification
-                </p>
-                <img src="https://s2.loli.net/2022/10/14/fiR2r97oXz8Zp4e.png">
-                <span>Figure 3.</span>
-
-            </div>
-
-
-
-        </div>
-
-
     </section>
+
+    <div id="quarto-content" class="page-columns page-rows-contents page-layout-article">
+        <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+            <nav id="TOC" role="doc-toc" class="toc-active">
+                <h2 id="toc-title">Table of contents</h2>
+
+                <ul>
+                    <li><a href="#naive-bayes-method" id="toc-naive-bayes-method" class="nav-link active" data-scroll-target="#naive-bayes-method"><span class="toc-section-number">1</span>  Naive Bayes Method</a></li>
+                    <li><a href="#ont-hot-encoding" id="toc-ont-hot-encoding" class="nav-link" data-scroll-target="#ont-hot-encoding"><span class="toc-section-number">2</span>  Ont-hot encoding</a></li>
+                    <li><a href="#smote-algorithm" id="toc-smote-algorithm" class="nav-link" data-scroll-target="#smote-algorithm"><span class="toc-section-number">3</span>  SMOTE algorithm</a></li>
+                    <li><a href="#model-training" id="toc-model-training" class="nav-link" data-scroll-target="#model-training"><span class="toc-section-number">4</span>  Model training</a></li>
+                    <li><a href="#confusion-matrix" id="toc-confusion-matrix" class="nav-link" data-scroll-target="#confusion-matrix"><span class="toc-section-number">5</span>  confusion matrix</a></li>
+                    <li><a href="#learning-curve" id="toc-learning-curve" class="nav-link" data-scroll-target="#learning-curve"><span class="toc-section-number">6</span>  Learning Curve</a></li>
+                    <li><a href="#roc-curve" id="toc-roc-curve" class="nav-link" data-scroll-target="#roc-curve"><span class="toc-section-number">7</span>  ROC Curve</a></li>
+                </ul>
+            </nav>
+        </div>
+        <main class="content" id="quarto-document-content">
+
+
+
+            <section id="naive-bayes-method" class="level1" data-number="1">
+                <h1 data-number="1"><span class="header-section-number">1</span> Naive Bayes Method</h1>
+                <p>Naive Bayes is the most simple algorithm that you can apply to your data. As the name suggests, here this algorithm makes an assumption as all the variables in the dataset is “Naive” i.e not correlated to each other. </p>
+                <p>
+                    Naive Bayes is a very popular classification algorithm that is mostly used to get the base accuracy of the dataset.
+                </p>
+
+                <div class="cell" data-execution_count="1">
+                    <details>
+                        <summary>Code</summary>
+                        <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> seaborn <span class="im">as</span> sns</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> matplotlib <span class="im">import</span> pyplot <span class="im">as</span> plt</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.naive_bayes <span class="im">import</span> MultinomialNB</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.metrics <span class="im">import</span> accuracy_score</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.model_selection <span class="im">import</span> train_test_split</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> imblearn.over_sampling <span class="im">import</span> SMOTE</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> os</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.feature_extraction.text <span class="im">import</span> CountVectorizer</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.feature_extraction.text <span class="im">import</span> TfidfTransformer</span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.metrics <span class="im">import</span> confusion_matrix</span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.metrics <span class="im">import</span> accuracy_score</span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.metrics <span class="im">import</span> recall_score</span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.metrics <span class="im">import</span> f1_score</span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> warnings</span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>warnings.filterwarnings(<span class="st">"ignore"</span>, category<span class="op">=</span><span class="pp">FutureWarning</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+                    </details>
+                </div>
+                <div class="cell" data-execution_count="2">
+                    <details>
+                        <summary>Code</summary>
+                        <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> dirname, _, filenames <span class="kw">in</span> os.walk(<span class="st">'../../data'</span>):</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> filename <span class="kw">in</span> filenames:</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(os.path.join(dirname, filename).replace(<span class="st">'</span><span class="ch">\\</span><span class="st">'</span>,<span class="st">'/'</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+                    </details>
+                    <div class="cell-output cell-output-stdout">
+                        <pre><code>../../data/clean-twitter_en.csv
+../../data/clean_kaggle.csv
+../../data/clean_public.csv
+../../data/cyberbullying_tweets.csv
+../../data/hate_speech.csv
+../../data/labeled_tweets.csv
+../../data/NAACL_SRW_2016.csv
+../../data/public_data_labeled.csv
+../../data/twitter_en.csv</code></pre>
+                    </div>
+                </div>
+                <div class="cell" data-execution_count="3">
+                    <details>
+                        <summary>Code</summary>
+                        <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pd.read_csv(<span class="st">'../../data/hate_speech.csv'</span>,index_col<span class="op">=</span><span class="dv">0</span>)</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> df[<span class="op">~</span>df[<span class="st">'text'</span>].isnull()]</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>df.drop_duplicates(inplace<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>df.shape</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="co"># df.head()</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+                    </details>
+                    <div class="cell-output cell-output-display" data-execution_count="3">
+
+                        <div>
+
+                            <table class="dataframe table table-sm table-striped">
+                                <thead>
+                                    <tr>
+                                        <th></th>
+                                        <th>id</th>
+                                        <th>follower_count</th>
+                                        <th>friends_count</th>
+                                        <th>retweet_count</th>
+                                        <th>favorite_count</th>
+                                        <th>text</th>
+                                        <th>word_length</th>
+                                        <th>label</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <th>0</th>
+                                        <td>13857342</td>
+                                        <td>20161</td>
+                                        <td>780</td>
+                                        <td>0</td>
+                                        <td>0</td>
+                                        <td>trying least targeting specific group cause tr...</td>
+                                        <td>10</td>
+                                        <td>0</td>
+                                    </tr>
+                                    <tr>
+                                        <th>1</th>
+                                        <td>13857342</td>
+                                        <td>20161</td>
+                                        <td>780</td>
+                                        <td>0</td>
+                                        <td>4</td>
+                                        <td>saw fly stats display time tweetstats hashtag ...</td>
+                                        <td>13</td>
+                                        <td>0</td>
+                                    </tr>
+                                    <tr>
+                                        <th>2</th>
+                                        <td>82522377</td>
+                                        <td>4</td>
+                                        <td>64</td>
+                                        <td>0</td>
+                                        <td>1</td>
+                                        <td>sauce capsicum stock packet jar quality cookin...</td>
+                                        <td>15</td>
+                                        <td>1</td>
+                                    </tr>
+                                    <tr>
+                                        <th>3</th>
+                                        <td>13857342</td>
+                                        <td>20161</td>
+                                        <td>780</td>
+                                        <td>1</td>
+                                        <td>30</td>
+                                        <td>think going play video game day super stressfu...</td>
+                                        <td>11</td>
+                                        <td>0</td>
+                                    </tr>
+                                    <tr>
+                                        <th>4</th>
+                                        <td>930620467</td>
+                                        <td>18807</td>
+                                        <td>263</td>
+                                        <td>0</td>
+                                        <td>0</td>
+                                        <td>fight systemic problem time offering real tip ...</td>
+                                        <td>11</td>
+                                        <td>0</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                <div class="cell" data-execution_count="4">
+                    <details>
+                        <summary>Code</summary>
+                        <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+                    </details>
+                    <div class="cell-output cell-output-display" data-execution_count="4">
+                        <pre><code>(3479, 8)</code></pre>
+                    </div>
+                </div>
+            </section>
+            <section id="ont-hot-encoding" class="level1" data-number="2">
+                <h1 data-number="2"><span class="header-section-number">2</span> Ont-hot encoding</h1>
+                <div class="cell">
+                    <details>
+                        <summary>Code</summary>
+                        <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co">#We leveraged only the text data to predict the hate speech in this case. One-hot encoding and tf-idf are two popular and widely used encoding methods to transfer the words into vectors. Both methods get rid of meaning of the words orders,</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+                    </details>
+                </div>
+                <div class="cell" data-execution_count="5">
+                    <details>
+                        <summary>Code</summary>
+                        <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># transfer the raw text data into matrix</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>cv <span class="op">=</span> CountVectorizer(analyzer<span class="op">=</span><span class="st">'word'</span>,min_df<span class="op">=</span><span class="fl">0.001</span>)</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>content  <span class="op">=</span> df.text</span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>vector <span class="op">=</span> cv.fit_transform(content)</span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>data <span class="op">=</span> vector.toarray()</span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>index_name <span class="op">=</span> cv.get_feature_names_out()</span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>tfidf <span class="op">=</span> TfidfTransformer()</span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a>x_tf <span class="op">=</span> tfidf.fit_transform(vector)</span>
+<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> imblearn.over_sampling <span class="im">import</span> SMOTE</span>
+<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a>sm <span class="op">=</span> SMOTE(random_state<span class="op">=</span><span class="dv">42</span>)</span>
+<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a>x,y <span class="op">=</span> sm.fit_resample(x_tf, df[<span class="st">'label'</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+                    </details>
+                </div>
+            </section>
+            <section id="smote-algorithm" class="level1" data-number="3">
+                <h1 data-number="3"><span class="header-section-number">3</span> SMOTE algorithm</h1>
+                <div class="cell">
+                    <details>
+                        <summary>Code</summary>
+                        <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> imblearn.over_sampling <span class="im">import</span> SMOTE</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>sm <span class="op">=</span> SMOTE(random_state<span class="op">=</span><span class="dv">42</span>)</span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>x,y <span class="op">=</span> sm.fit_resample(x_tf, df[<span class="st">'label'</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+                    </details>
+                </div>
+            </section>
+            <section id="model-training" class="level1" data-number="4">
+                <h1 data-number="4"><span class="header-section-number">4</span> Model training</h1>
+                <div class="cell" data-execution_count="21">
+                    <details>
+                        <summary>Code</summary>
+                        <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># train and test</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>X_train, X_test, y_train, y_test <span class="op">=</span> train_test_split(x, y, test_size<span class="op">=</span><span class="fl">0.2</span>, stratify<span class="op">=</span>y, random_state<span class="op">=</span><span class="dv">42</span>)</span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>clf <span class="op">=</span> MultinomialNB()</span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>clf.fit(X_train,y_train)</span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>y_pre <span class="op">=</span> clf.predict(X_test)</span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>accuracy_score(y_test,y_pre)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+                    </details>
+                </div>
+            </section>
+            <section id="confusion-matrix" class="level1" data-number="5">
+                <h1 data-number="5"><span class="header-section-number">5</span> confusion matrix</h1>
+                <div class="cell" data-execution_count="23">
+                    <details>
+                        <summary>Code</summary>
+                        <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co">#confusion matrix</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> matplotlib.pyplot <span class="im">import</span> xticks</span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.metrics <span class="im">import</span> confusion_matrix</span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>fig,ax <span class="op">=</span> plt.subplots(figsize<span class="op">=</span>(<span class="dv">12</span>,<span class="dv">8</span>))</span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>mx <span class="op">=</span> confusion_matrix(y_test,y_pre)</span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a><span class="co"># cmd = ConfusionMatrixDisplay(mx,display_labels=['Positive','Negative'])</span></span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a>group_names <span class="op">=</span> [<span class="st">'True Neg'</span>,<span class="st">'False Neg'</span>,<span class="st">'False Positive'</span>,<span class="st">'True Positive'</span>]</span>
+<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a>group_counts <span class="op">=</span> [<span class="st">"</span><span class="sc">{0:0.0f}</span><span class="st">"</span>.<span class="bu">format</span>(value) <span class="cf">for</span> value <span class="kw">in</span></span>
+<span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a>                mx.flatten()]</span>
+<span id="cb11-10"><a href="#cb11-10" aria-hidden="true" tabindex="-1"></a>group_percentages <span class="op">=</span> [<span class="st">"</span><span class="sc">{:.2%}</span><span class="st">"</span>.<span class="bu">format</span>(value) <span class="cf">for</span> value <span class="kw">in</span> mx.flatten()<span class="op">/</span>np.<span class="bu">sum</span>(mx) ]</span>
+<span id="cb11-11"><a href="#cb11-11" aria-hidden="true" tabindex="-1"></a>labels <span class="op">=</span> [<span class="ss">f"</span><span class="sc">{</span>v1<span class="sc">}</span><span class="ch">\n</span><span class="sc">{</span>v2<span class="sc">}</span><span class="ch">\n</span><span class="sc">{</span>v3<span class="sc">}</span><span class="ss">"</span> <span class="cf">for</span> v1, v2, v3 <span class="kw">in</span></span>
+<span id="cb11-12"><a href="#cb11-12" aria-hidden="true" tabindex="-1"></a>          <span class="bu">zip</span>(group_names,group_counts,group_percentages)]</span>
+<span id="cb11-13"><a href="#cb11-13" aria-hidden="true" tabindex="-1"></a>labels <span class="op">=</span> np.array(labels).reshape(<span class="dv">2</span>,<span class="dv">2</span>)</span>
+<span id="cb11-14"><a href="#cb11-14" aria-hidden="true" tabindex="-1"></a>sns.heatmap(data<span class="op">=</span>mx,annot<span class="op">=</span>labels,fmt<span class="op">=</span><span class="st">''</span>,cmap<span class="op">=</span><span class="st">'Blues'</span>,square<span class="op">=</span><span class="va">True</span>,annot_kws<span class="op">=</span>{<span class="st">"fontsize"</span>:<span class="dv">14</span>})</span>
+<span id="cb11-15"><a href="#cb11-15" aria-hidden="true" tabindex="-1"></a>ax.set_title(<span class="st">'Confusion matrix'</span>,fontsize<span class="op">=</span><span class="dv">16</span>)</span>
+<span id="cb11-16"><a href="#cb11-16" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">'Actual label'</span>,fontsize<span class="op">=</span><span class="dv">18</span>)</span>
+<span id="cb11-17"><a href="#cb11-17" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">'Predicted label'</span>,fontsize<span class="op">=</span><span class="dv">16</span>)</span>
+<span id="cb11-18"><a href="#cb11-18" aria-hidden="true" tabindex="-1"></a>ax.set_xticklabels([<span class="st">'Negative'</span>,<span class="st">'Positive'</span>],fontsize<span class="op">=</span><span class="dv">16</span>)</span>
+<span id="cb11-19"><a href="#cb11-19" aria-hidden="true" tabindex="-1"></a>ax.set_yticklabels([<span class="st">'Negative'</span>,<span class="st">'Positive'</span>],fontsize<span class="op">=</span><span class="dv">16</span>)</span>
+<span id="cb11-20"><a href="#cb11-20" aria-hidden="true" tabindex="-1"></a>plt.savefig(<span class="st">'./confusion_matrix.png'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+                    </details>
+                    <div class="cell-output cell-output-display">
+                        <p><img src="nb_files/figure-html/cell-10-output-1.png" class="img-fluid"></p>
+                    </div>
+                </div>
+            </section>
+            <section id="learning-curve" class="level1" data-number="6">
+                <h1 data-number="6"><span class="header-section-number">6</span> Learning Curve</h1>
+                <div class="cell" data-execution_count="29">
+                    <details>
+                        <summary>Code</summary>
+                        <div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.model_selection <span class="im">import</span> learning_curve</span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>train_sizes<span class="op">=</span>np.linspace(<span class="fl">0.1</span>, <span class="fl">1.0</span>, <span class="dv">5</span>)</span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>train_sizes, train_scores, test_scores,a,b <span class="op">=</span> learning_curve(</span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>        estimator<span class="op">=</span>MultinomialNB(),</span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>        X<span class="op">=</span>X_train,</span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a>        y<span class="op">=</span>y_train,</span>
+<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a>        scoring<span class="op">=</span><span class="st">'accuracy'</span>,</span>
+<span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a>        cv<span class="op">=</span><span class="dv">5</span>,</span>
+<span id="cb12-9"><a href="#cb12-9" aria-hidden="true" tabindex="-1"></a>        n_jobs<span class="op">=</span><span class="dv">1</span>,</span>
+<span id="cb12-10"><a href="#cb12-10" aria-hidden="true" tabindex="-1"></a>        train_sizes<span class="op">=</span>train_sizes,</span>
+<span id="cb12-11"><a href="#cb12-11" aria-hidden="true" tabindex="-1"></a>        return_times<span class="op">=</span><span class="va">True</span>,</span>
+<span id="cb12-12"><a href="#cb12-12" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb12-13"><a href="#cb12-13" aria-hidden="true" tabindex="-1"></a>train_scores_mean <span class="op">=</span> np.mean(train_scores, axis<span class="op">=</span><span class="dv">1</span>)</span>
+<span id="cb12-14"><a href="#cb12-14" aria-hidden="true" tabindex="-1"></a>train_scores_std <span class="op">=</span> np.std(train_scores, axis<span class="op">=</span><span class="dv">1</span>)</span>
+<span id="cb12-15"><a href="#cb12-15" aria-hidden="true" tabindex="-1"></a>test_scores_mean <span class="op">=</span> np.mean(test_scores, axis<span class="op">=</span><span class="dv">1</span>)</span>
+<span id="cb12-16"><a href="#cb12-16" aria-hidden="true" tabindex="-1"></a>test_scores_std <span class="op">=</span> np.std(test_scores, axis<span class="op">=</span><span class="dv">1</span>)</span>
+<span id="cb12-17"><a href="#cb12-17" aria-hidden="true" tabindex="-1"></a><span class="co"># fit_times_mean = np.mean(fit_times, axis=1)</span></span>
+<span id="cb12-18"><a href="#cb12-18" aria-hidden="true" tabindex="-1"></a><span class="co"># fit_times_std = np.std(fit_times, axis=1)# Plot learning curve</span></span>
+<span id="cb12-19"><a href="#cb12-19" aria-hidden="true" tabindex="-1"></a><span class="co"># learning curve</span></span>
+<span id="cb12-20"><a href="#cb12-20" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.model_selection <span class="im">import</span> learning_curve</span>
+<span id="cb12-21"><a href="#cb12-21" aria-hidden="true" tabindex="-1"></a>fig,ax <span class="op">=</span> plt.subplots(figsize<span class="op">=</span>(<span class="dv">20</span>,<span class="dv">8</span>))</span>
+<span id="cb12-22"><a href="#cb12-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-23"><a href="#cb12-23" aria-hidden="true" tabindex="-1"></a>ax.grid()</span>
+<span id="cb12-24"><a href="#cb12-24" aria-hidden="true" tabindex="-1"></a>ax.fill_between(</span>
+<span id="cb12-25"><a href="#cb12-25" aria-hidden="true" tabindex="-1"></a>    train_sizes,</span>
+<span id="cb12-26"><a href="#cb12-26" aria-hidden="true" tabindex="-1"></a>    train_scores_mean <span class="op">-</span> train_scores_std,</span>
+<span id="cb12-27"><a href="#cb12-27" aria-hidden="true" tabindex="-1"></a>    train_scores_mean <span class="op">+</span> train_scores_std,</span>
+<span id="cb12-28"><a href="#cb12-28" aria-hidden="true" tabindex="-1"></a>    alpha<span class="op">=</span><span class="fl">0.1</span>,</span>
+<span id="cb12-29"><a href="#cb12-29" aria-hidden="true" tabindex="-1"></a>    color<span class="op">=</span><span class="st">"r"</span>,</span>
+<span id="cb12-30"><a href="#cb12-30" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb12-31"><a href="#cb12-31" aria-hidden="true" tabindex="-1"></a>ax.fill_between(</span>
+<span id="cb12-32"><a href="#cb12-32" aria-hidden="true" tabindex="-1"></a>    train_sizes,</span>
+<span id="cb12-33"><a href="#cb12-33" aria-hidden="true" tabindex="-1"></a>    test_scores_mean <span class="op">-</span> test_scores_std,</span>
+<span id="cb12-34"><a href="#cb12-34" aria-hidden="true" tabindex="-1"></a>    test_scores_mean <span class="op">+</span> test_scores_std,</span>
+<span id="cb12-35"><a href="#cb12-35" aria-hidden="true" tabindex="-1"></a>    alpha<span class="op">=</span><span class="fl">0.1</span>,</span>
+<span id="cb12-36"><a href="#cb12-36" aria-hidden="true" tabindex="-1"></a>    color<span class="op">=</span><span class="st">"g"</span>,</span>
+<span id="cb12-37"><a href="#cb12-37" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb12-38"><a href="#cb12-38" aria-hidden="true" tabindex="-1"></a>ax.plot(</span>
+<span id="cb12-39"><a href="#cb12-39" aria-hidden="true" tabindex="-1"></a>    train_sizes, train_scores_mean, <span class="st">"o-"</span>, color<span class="op">=</span><span class="st">"r"</span>, label<span class="op">=</span><span class="st">"Training score"</span></span>
+<span id="cb12-40"><a href="#cb12-40" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb12-41"><a href="#cb12-41" aria-hidden="true" tabindex="-1"></a>ax.plot(</span>
+<span id="cb12-42"><a href="#cb12-42" aria-hidden="true" tabindex="-1"></a>    train_sizes, test_scores_mean, <span class="st">"o-"</span>, color<span class="op">=</span><span class="st">"g"</span>, label<span class="op">=</span><span class="st">"Cross-validation score"</span></span>
+<span id="cb12-43"><a href="#cb12-43" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb12-44"><a href="#cb12-44" aria-hidden="true" tabindex="-1"></a>FS <span class="op">=</span> <span class="dv">14</span></span>
+<span id="cb12-45"><a href="#cb12-45" aria-hidden="true" tabindex="-1"></a>ax.legend(loc<span class="op">=</span><span class="st">"best"</span>,fontsize<span class="op">=</span>FS)</span>
+<span id="cb12-46"><a href="#cb12-46" aria-hidden="true" tabindex="-1"></a>ax.set_title(<span class="st">'Learning Curve(Naive Bayes)'</span>,fontsize<span class="op">=</span>FS)</span>
+<span id="cb12-47"><a href="#cb12-47" aria-hidden="true" tabindex="-1"></a>ax.set_xlabel(<span class="st">'traning_example'</span>,fontsize<span class="op">=</span>FS)</span>
+<span id="cb12-48"><a href="#cb12-48" aria-hidden="true" tabindex="-1"></a>ax.set_ylabel(<span class="st">'accuracy score'</span>,fontsize<span class="op">=</span>FS)</span>
+<span id="cb12-49"><a href="#cb12-49" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+                    </details>
+                </div>
+            </section>
+            <section id="roc-curve" class="level1" data-number="7">
+                <h1 data-number="7"><span class="header-section-number">7</span> ROC Curve</h1>
+                <div class="cell" data-execution_count="31">
+                    <details>
+                        <summary>Code</summary>
+                        <div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.metrics <span class="im">import</span> roc_curve, auc,roc_auc_score</span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">12</span>,<span class="dv">8</span>))</span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>y_pred_prob <span class="op">=</span> clf.predict_proba(X_test)[::,<span class="dv">1</span>]</span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>fpr, tpr, threshold <span class="op">=</span> roc_curve(y_test,y_pred_prob)</span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>auc <span class="op">=</span> roc_auc_score(y_test, y_pred_prob)</span>
+<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a><span class="co">#create ROC curve</span></span>
+<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a>plt.plot(fpr,tpr,label<span class="op">=</span><span class="st">"AUC="</span><span class="op">+</span><span class="bu">str</span>(auc))</span>
+<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">'roc curve(Multinomial Naive Bayes)'</span>,fontsize<span class="op">=</span>FS)</span>
+<span id="cb13-9"><a href="#cb13-9" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">'True Positive Rate'</span>,fontsize<span class="op">=</span>FS)</span>
+<span id="cb13-10"><a href="#cb13-10" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">'False Positive Rate'</span>,fontsize<span class="op">=</span>FS)</span>
+<span id="cb13-11"><a href="#cb13-11" aria-hidden="true" tabindex="-1"></a>plt.legend(loc<span class="op">=</span><span class="st">'lower right'</span>,fontsize<span class="op">=</span>FS)</span>
+<span id="cb13-12"><a href="#cb13-12" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+                    </details>
+                    <div class="cell-output cell-output-display">
+                        <p><img src="nb_files/figure-html/cell-12-output-1.png" class="img-fluid"></p>
+                    </div>
+                </div>
+            </section>
+
+        </main>
+        <!-- /main column -->
+        <script id="quarto-html-after-body" type="application/javascript">
+            window.document.addEventListener("DOMContentLoaded", function(event) {
+                const toggleBodyColorMode = (bsSheetEl) => {
+                    const mode = bsSheetEl.getAttribute("data-mode");
+                    const bodyEl = window.document.querySelector("body");
+                    if (mode === "dark") {
+                        bodyEl.classList.add("quarto-dark");
+                        bodyEl.classList.remove("quarto-light");
+                    } else {
+                        bodyEl.classList.add("quarto-light");
+                        bodyEl.classList.remove("quarto-dark");
+                    }
+                }
+                const toggleBodyColorPrimary = () => {
+                    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+                    if (bsSheetEl) {
+                        toggleBodyColorMode(bsSheetEl);
+                    }
+                }
+                toggleBodyColorPrimary();
+                const icon = "";
+                const anchorJS = new window.AnchorJS();
+                anchorJS.options = {
+                    placement: 'right',
+                    icon: icon
+                };
+                anchorJS.add('.anchored');
+                const clipboard = new window.ClipboardJS('.code-copy-button', {
+                    target: function(trigger) {
+                        return trigger.previousElementSibling;
+                    }
+                });
+                clipboard.on('success', function(e) {
+                    // button target
+                    const button = e.trigger;
+                    // don't keep focus
+                    button.blur();
+                    // flash "checked"
+                    button.classList.add('code-copy-button-checked');
+                    var currentTitle = button.getAttribute("title");
+                    button.setAttribute("title", "Copied!");
+                    let tooltip;
+                    if (window.bootstrap) {
+                        button.setAttribute("data-bs-toggle", "tooltip");
+                        button.setAttribute("data-bs-placement", "left");
+                        button.setAttribute("data-bs-title", "Copied!");
+                        tooltip = new bootstrap.Tooltip(button, {
+                            trigger: "manual",
+                            customClass: "code-copy-button-tooltip",
+                            offset: [0, -8]
+                        });
+                        tooltip.show();
+                    }
+                    setTimeout(function() {
+                        if (tooltip) {
+                            tooltip.hide();
+                            button.removeAttribute("data-bs-title");
+                            button.removeAttribute("data-bs-toggle");
+                            button.removeAttribute("data-bs-placement");
+                        }
+                        button.setAttribute("title", currentTitle);
+                        button.classList.remove('code-copy-button-checked');
+                    }, 1000);
+                    // clear code selection
+                    e.clearSelection();
+                });
+                const viewSource = window.document.getElementById('quarto-view-source') ||
+                    window.document.getElementById('quarto-code-tools-source');
+                if (viewSource) {
+                    const sourceUrl = viewSource.getAttribute("data-quarto-source-url");
+                    viewSource.addEventListener("click", function(e) {
+                        if (sourceUrl) {
+                            // rstudio viewer pane
+                            if (/\bcapabilities=\b/.test(window.location)) {
+                                window.open(sourceUrl);
+                            } else {
+                                window.location.href = sourceUrl;
+                            }
+                        } else {
+                            const modal = new bootstrap.Modal(document.getElementById('quarto-embedded-source-code-modal'));
+                            modal.show();
+                        }
+                        return false;
+                    });
+                }
+
+                function toggleCodeHandler(show) {
+                    return function(e) {
+                        const detailsSrc = window.document.querySelectorAll(".cell > details > .sourceCode");
+                        for (let i = 0; i < detailsSrc.length; i++) {
+                            const details = detailsSrc[i].parentElement;
+                            if (show) {
+                                details.open = true;
+                            } else {
+                                details.removeAttribute("open");
+                            }
+                        }
+                        const cellCodeDivs = window.document.querySelectorAll(".cell > .sourceCode");
+                        const fromCls = show ? "hidden" : "unhidden";
+                        const toCls = show ? "unhidden" : "hidden";
+                        for (let i = 0; i < cellCodeDivs.length; i++) {
+                            const codeDiv = cellCodeDivs[i];
+                            if (codeDiv.classList.contains(fromCls)) {
+                                codeDiv.classList.remove(fromCls);
+                                codeDiv.classList.add(toCls);
+                            }
+                        }
+                        return false;
+                    }
+                }
+                const hideAllCode = window.document.getElementById("quarto-hide-all-code");
+                if (hideAllCode) {
+                    hideAllCode.addEventListener("click", toggleCodeHandler(false));
+                }
+                const showAllCode = window.document.getElementById("quarto-show-all-code");
+                if (showAllCode) {
+                    showAllCode.addEventListener("click", toggleCodeHandler(true));
+                }
+
+                function tippyHover(el, contentFn) {
+                    const config = {
+                        allowHTML: true,
+                        content: contentFn,
+                        maxWidth: 500,
+                        delay: 100,
+                        arrow: false,
+                        appendTo: function(el) {
+                            return el.parentElement;
+                        },
+                        interactive: true,
+                        interactiveBorder: 10,
+                        theme: 'quarto',
+                        placement: 'bottom-start'
+                    };
+                    window.tippy(el, config);
+                }
+                const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+                for (var i = 0; i < noterefs.length; i++) {
+                    const ref = noterefs[i];
+                    tippyHover(ref, function() {
+                        // use id or data attribute instead here
+                        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+                        try {
+                            href = new URL(href).hash;
+                        } catch {}
+                        const id = href.replace(/^#\/?/, "");
+                        const note = window.document.getElementById(id);
+                        return note.innerHTML;
+                    });
+                }
+                const findCites = (el) => {
+                    const parentEl = el.parentElement;
+                    if (parentEl) {
+                        const cites = parentEl.dataset.cites;
+                        if (cites) {
+                            return {
+                                el,
+                                cites: cites.split(' ')
+                            };
+                        } else {
+                            return findCites(el.parentElement)
+                        }
+                    } else {
+                        return undefined;
+                    }
+                };
+                var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+                for (var i = 0; i < bibliorefs.length; i++) {
+                    const ref = bibliorefs[i];
+                    const citeInfo = findCites(ref);
+                    if (citeInfo) {
+                        tippyHover(citeInfo.el, function() {
+                            var popup = window.document.createElement('div');
+                            citeInfo.cites.forEach(function(cite) {
+                                var citeDiv = window.document.createElement('div');
+                                citeDiv.classList.add('hanging-indent');
+                                citeDiv.classList.add('csl-entry');
+                                var biblioDiv = window.document.getElementById('ref-' + cite);
+                                if (biblioDiv) {
+                                    citeDiv.innerHTML = biblioDiv.innerHTML;
+                                }
+                                popup.appendChild(citeDiv);
+                            });
+                            return popup.innerHTML;
+                        });
+                    }
+                }
+            });
+        </script>
+        <footer id="footer">
+            <div style="background-color:#313030; float: bottom;">
+                <div style="height:50px;margin-top: 0px; vertical-align: middle;">
+                    <p style="color:	#8d8d8d; "> © 2022 Haoxuan Weng 501 Project, powered by GU domain </p>
+                </div>
+            </div>
+        </footer>
+    </div>
+    <!-- /content -->
 
 
 
