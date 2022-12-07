@@ -34,9 +34,6 @@
     </header>
 
     <section class="banner">
-        <div class="left-side">
-            <img src="https://images.unsplash.com/photo-1663051957237-8da7729a1c15?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80" alt="project-overview">
-        </div>
         <div class="content-container">
             <div class="subject">
                 ANLY 501 Data Science And Analytics
@@ -68,46 +65,114 @@
         </div>
 
         <div class="wrapper-content">
-            <h1>1.Data Exploring</h1>
-            <p id='ppp'>
-                the label unit of x/y axis are specified in the code. If you may be confused by the unit meaning, please check the output charts in my python files, and please minus points because the label unit problem, plz.
-            </p>
+            <h1 style="margin-top: 50px;">1.Data Exploring</h1>
             <div>
+                <img style="display: block; width: 538px; 
+                height: 360px; margin-top: 20px;" src="https://images.unsplash.com/photo-1663051957237-8da7729a1c15?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80">
+
                 <p>
-                    For the purposing of grasping deeper sense of how our data generally look like, I conduct a Exploratory data analysis further.
+                    Data exploring is an indispensable process. Converting your data to visualizations allows you to bring the human visual cortex into your analytical process, and I often find that this helps me find more insights faster, since the visual component of it
+                    makes the insights jump right out at me.
                 </p>
                 <p>
-                    First, we need to look at if there would be some missing data.
-                </p>
-                <img src="https://s2.loli.net/2022/09/29/ZvoXEdkegGunQiq.png">
-                <span>Figure 1.1</span>
-                <p>
-                    This is a bar plot that shows all the missing variable in the dataset. Each bar stands for each variable, while the height in the x-axis represents the missing percentage sorted by value. The plot indicates that the geo and description variable are missing.
+                    In this section, I visualize the both the newwork and tweets text with various visualization methods. Bar chart, histogram, heatmap are all used to dive deer into our dataset. Therefore, the following machine learning classification problem can be built
+                    on the EDA results.
                 </p>
 
-                <img src="https://s2.loli.net/2022/09/29/1tgUfPSQwBErJv4.png">
-                <span>Figure 2.1</span>
-                <p>
-                    A bar plot shows the top 3 languages that are widely used in tweets. The top3N languages with the most usage are English, Spanish, and Portuguese.
-                </p>
-                <img src="https://s2.loli.net/2022/09/29/3VxO7rL8NBSQJ1p.png">
-                <p>
-                    From the qualitative data description, the two variables are both severely left-skewed, which means the 1-th percentile even equals to the 3-th percentile. We can find it from the box plot below.
-                </p>
-                <img src="https://s2.loli.net/2022/09/29/EvsHqe2gjhpu6aG.png">
-                <img src="https://s2.loli.net/2022/09/29/nep4Uh7WdgIQv51.png">
-
-                <img src="https://s2.loli.net/2022/09/29/ODWXqHNc3BFarlU.png">
-                <p>
-                    We can specify the distribution of the length of each tweets through the hist plot. Since there may be some intricate relationship between the length of the tweets and aggresiveness of them. Thereafer, I diffentiate with the two labels, the label 0 means
-                    that the text is non-aggressive and the label 1 means the tweet is aggressive.
-                </p>
-                <img src="https://s2.loli.net/2022/09/29/FmT7DXRy5pEOlLH.png">
-                <p>
-                    Finally, plotting a wordcloud chart can help us understand what kind of words are most frequently used in all tweets that count.
-
-                </p>
             </div>
+            <div id="dot">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+
+            <div id="eda">
+                <div>
+                    <img src="https://s2.loli.net/2022/12/07/XjWNz1FnZGJRfy6.png">
+                    <p>
+                        To have a glimpse of how the numbers of followers distribute across the dataset, I compare the non hate speech and the hate speech of this variable. Surprinsingly enough, I notice that follower numbers of both the two labs distributed evenly. This means
+                        that this the variable plays little role in predicting the cyberviolence tag.
+                    </p>
+                    <div id="dot">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
+                </div>
+
+                <div>
+                    <img src="https://s2.loli.net/2022/12/07/YfsuB2RZLdQqJrT.png">
+                    <p>
+                        According to this histogram, I notice that the distribution of numbers of friends of both labels is nearly even, but when friends count between 2000 and 4000, there is some slight difference between the two label. Besides, across the xaxis, numbers of
+                        friends for each account distributed mostly below 2000. Too many friends for each user account can be deemed as outliers.
+                    </p>
+                    <div id="dot">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
+
+                </div>
+
+                <div>
+                    <div id="middle-box">
+                        <img style="padding-top: 20px;" src="https://s2.loli.net/2022/12/07/oGurmHl2KtIzAig.png">
+                        <img style="padding-bottom: 20px;" src="https://s2.loli.net/2022/12/07/vohbNkpAUPlzO3G.png">
+                    </div>
+                    <div>
+                        <p>
+                            From the heatmap, we can conclude that there is no certain pattern between each pairs of the numerical data. From the boxplot, it should be noticed that the distribution of numbers of likes is right-skewed, and that makes sense. Few tweets gain much more
+                            attention than most of the others.
+                        </p>
+                    </div>
+                    <div id="dot">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
+                </div>
+
+                <div>
+                    <img src="https://s2.loli.net/2022/12/07/QO8FZYKfUS39gjc.png">
+                    <p>
+                        The largest numbers of likes of the hate speech can also mean the tweets that attract the most attention in the social media. If we pick the maximum numbers of likes in the label 1, we can see that the tweet just makes no sense. However, this also reflects
+                        the importance of followers. People with more followers become opinion leaders, so it is reasonable that their tweets can attract more attention, even what they say in the tweets make no sense.
+                    </p>
+                    <div id="dot">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
+                </div>
+
+                <div>
+                    <img src="https://s2.loli.net/2022/12/07/V7TUgfpaoQyAbRv.png">
+                    <p>
+                        From this histogram, we can see that only 10 words for each tweets make up the majority. On the flip side, non hate speech texts are generally longer than the hate speech texts, which is very interesting. People usally text violent speech on Twitter in
+                        short sentence? It should be some pattern behind the data.
+                    </p>
+                    <div id="dot">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
+                </div>
+                <div>
+                    <img src="https://s2.loli.net/2022/12/07/SJVMyZjxkdHzGaY.png">
+                    <p>
+                        Finally, by plotting this wordcloud of the hate speech tweets only, many words such as woman, girl, sexist, femanism take over this picture. It also reflects that my dataset can be kind of inblance, because there is little racism kind words.
+                    </p>
+                </div>
+                <footer id="footer">
+                    <div style="background-color:#313030; float: bottom;">
+                        <div style="height:50px;margin-top: 0px; vertical-align: middle;">
+                            <p style="color:	#8d8d8d; "> © 2022 Haoxuan Weng 501 Project, powered by GU domain </p>
+                        </div>
+                    </div>
+                </footer>
+
+            </div>
+
 
         </div>
 

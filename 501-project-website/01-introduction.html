@@ -34,22 +34,19 @@
     </header>
 
     <section class="banner">
-        <div class="left-side">
-            <img src="https://images.unsplash.com/photo-1663051957237-8da7729a1c15?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80" alt="project-overview">
-        </div>
         <div class="content-container">
-            <div class="subject">
-                ANLY 501 Data Science And Analytics
-            </div>
             <div class='research-name'>
                 <h1>
                     Automatic Cyberbulleying detect
                 </h1>
             </div>
+            <div class="subject">
+                ANLY 501 Data Science and Analytics
+            </div>
         </div>
     </section>
 
-    <section class="wrapper">
+    <div class="wrapper">
         <div style="position:sticky;top: 300px;float: left;max-width: 25%;">
             <nav class="bx--tableofcontents__desktop" data-autoid="dds--tableofcontents__desktop">
                 <ul>
@@ -66,37 +63,173 @@
                 </ul>
             </nav>
         </div>
+    </div>
 
-        <div class="wrapper-content">
-            <h1>1. About this project</h1>
-            <div>
-                <p>
-                    With rise of social media coupled with the Covid-19 pandemic, cyberbullying has reached all time highs. We can combat this by creating models to automatically flag potentially harmful tweets as well as break down the patterns of hatred. As social media
-                    usage becomes increasingly prevalent in every age group, a vast majority of citizens rely on this essential medium for day-to-day communication. Social media’s ubiquity means that cyberbullying can effectively impact anyone at any
-                    time or anywhere, and the relative anonymity.
-                </p>
-                <p>
-                    My topic revolves around automating cyberbullying detection by leveraging machine learning methods. Cyberbulleying is a long-exsiting issue that concerns us. During to the Covid-19 pandemic, we rely more often on social media , which might expose us with
-                    cyberbullying. My question divides into 10 part, and I would conduct the research experienment to elaborate them.
-                </p>
-                <ul class="">
-                    <li>1. How to define cyberbullying?</li>
-                    <li>2. What kind of aftermath that cyberbullying may lead to us?</li>
-                    <li>3. Does covid-19 pandemic abet cyberviolence or have an impact on it?</li>
-                    <li>4. How many cyberbullying categories are there by roughly calculating?</li>
-                    <li>5. Can we categorize the personalities of the abusers under the text? And people of what kind of personalities are more likely to exert oral violence</li>
-                    <li>6. What kind of Characteristics words or emojis look like in cyberbullying context?(We can recognize them the last time we are confronted with cyberbullying)</li>
-                    <li>7. How to detect the cyberbullying through machine learning methods</li>
-                    <li>8. Which machine learning method outstands?</li>
-                    <li>9. How to interpret the evaluation independent variables that impact cyberbullying level</li>
-                    <li>10. What can we possibly enhance our experienments accuracy, in other words, how can we further employ natural language processing to detect cyberbullying</li>
-                </ul>
-            </div>
-
+    <div class="wrapper-content">
+        <h1 style="margin-top: 50px;">1. About this project</h1>
+        <h2 id="dec1">What if the world does not have hate</h2>
+        <img id='dec2' src="https://cdn-2.tstatic.net/manado/foto/bank/images/3-tanda-penyebab-hate-speech-sering-terjadi-di-media-sosial-menurut-pakar-Psikolog-Internet-UGM.jpg" alt="">
+        <div>
+            <p>
+                With rise of social media coupled with the Covid-19 pandemic, cyberbullying has reached all time highs. We can combat this by creating models to automatically flag potentially harmful tweets as well as break down the patterns of hatred. As social media
+                usage becomes increasingly prevalent in every age group, a vast majority of citizens rely on this essential medium for day-to-day communication. Social media’s ubiquity means that cyberbullying can effectively impact anyone at any time
+                or anywhere, and the relative anonymity.
+            </p>
+            <p>
+                My topic revolves around automating cyberbullying detection by leveraging machine learning methods. Cyberbulleying is a long-exsiting issue that concerns us. During to the Covid-19 pandemic, we rely more often on social media , which might expose us with
+                cyberbullying.
+            </p>
+            <p>
+                My question divides into 10 part, and I would conduct the research experienment to elaborate them.
+            </p>
         </div>
 
+        <div id="dot">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
 
-    </section>
+        <div>
+            <h1 style="margin-top: 50px;">2.Research storylines</h1>
+            <h2 id="dec1">The shadow of cyberviolence</h2>
+            <img style="margin-top:20px; width: 600px; height: 430px;display: block;" src="https://www.hhri.org/wp-content/uploads/2019/09/Cyber-Violence-.jpg">
+            <section class='flex-container'>
+                <div class="flex-item">
+                    <h2>What exactly is cyberviolence or hate speech </h2>
+                    <p>
+                        The problem of violence and abuse is the greatest challenge the Internet faces today. According to the United Nation's 73% of women have already been exposed or experienced some form of online violence. It is a significant issue that cannot be fixed with
+                        simple and easy solutions this is because cyberviolence and online abuse is much bigger than the average person, and much more complex than the snarky attitudes we see in the comment sections or the obvious violent threats.
+                    </p>
+                    <p>
+                        In this research project, I define hate speech to be contained sexism or racism speech in the tweets.
+                    </p>
+                    <div id="dot">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
+                </div>
+
+                <div class="flex-item">
+                    <h2>Why this project leverage Twitter? </h2>
+                    <p>
+                        Twitter is widely used throughout the world. Much as there is a large-scaled layoffs reported by News in the recent months, few can shake its hegemony in social media.
+                    </p>
+                    <p>
+                        By using tweepy, which is a official API for developer of tweeter, I can leverage the tweepy to scrape tweets and download them to analyze the text data.
+                    </p>
+                    <div id="dot">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
+                </div>
+                <div class="flex-item">
+                    <h2>What is the previous work to detect hate speech? </h2>
+                    <p>
+                        Practitioners in NLP field has conducted countless research to deal with hate speech detection. Some uses traditional ML techniques like logistic regression, random forest, support vector machine, and so on . Others implemented it by even using DL techniques.
+                        For instance, Bidirectional LSTM model, Convolutional Neural Network, or different variants of transformers model adding the self-attention mechanism are all separately used.
+                    </p>
+                    <div id="dot">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
+                </div>
+                <div class="flex-item">
+                    <h2>What is the innovation in this project? </h2>
+                    <p>
+                        <strong> Most of the researchers only leverage the text
+                                data to conduct the NLP techniques. I believe by conducting the network analysis, and also combines it with traditional ML techniques</strong>, I can achieve this violence detection task better.
+                    </p>
+                    <div id="dot">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
+                </div>
+
+                <div class="flex-item">
+                    <h2>Does the user account information associate with the hate speech detection? </h2>
+                    <p>
+                        Although text data should be the most important factor to predict hate speech, by leveraging the account informaiton, I can input more related variables into the models. To be specific, the numbers of followers, likes, retweets, etc. could be possible
+                        to influence the model performance.
+                    </p>
+                    <div id="dot">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
+                </div>
+
+                <div class="flex-item">
+                    <h2> Why shall we do Exploratory Data Analysis?</h2>
+                    <p>
+                        Exploratory analysis is crucial, since it can uncover some useful information from the data.
+                    </p>
+                    <div id="dot">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
+                </div>
+                <div class="flex-item">
+                    <h2>How to observe the hate speech by machine learning techniques? </h2>
+                    <p>
+                        The research uses Support Vector Machine, decision tree and naive bayes to build the classification model. Support vector machine creates high-dimentional hyperplane to divide the data. Compared with the other two, it outstands in small data set, but
+                        slower in performance once in bigger data set.
+                    </p>
+                    <p>
+                        Decision tree, on the other hand, either adopts the Gini Index or cross entropy, to separate the data by initilizing a set of rules, which called internal nodes; The naive bayes is widely used and it is seen as a stepping stone or baseline for more complex
+                        ML/DL techniques.
+                    </p>
+                    <p>
+                        Each of them has unique advantages. Since it is a research project, I really want to dive in and compare the permance of the three classic models. Besides, I also leverage unsupervised-learning ML techniques like clustering and association rule to unearth
+                        more results.
+                    </p>
+                    <div id="dot">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
+                </div>
+
+                <div class="flex-item">
+                    <h2>Which machine learning method outstands? </h2>
+                    <p>
+                        Of the three classification models, the Polynomial Support Vector Machine performs the best. The decision tree is easy to be overfitting. Therefore, using bagging method of Random Forest can largely reduce the variance.
+                    </p>
+                    <div id="dot">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
+                </div>
+
+                <div class="flex-item">
+                    <h2>In what aspects can we develop our model further to improve the recall rate </h2>
+                    <p>
+                        <strong> NLP is a very wide and complex field.</strong> Trying to predict the hate speech by only using traditional ML techniques is not plausible. This research project can be conducted further by using DL techniques. DL models
+                        such as Recurrent Neural Network, involve more parameters into the model can be relied on. We can add attention layer and use bidirectional LSTM to solve vanishing gradient problems met in the vanilla RNN. We can also use transformer
+                        models like Bert or GPT-2 to improve the model efficiency and effectiveness by using <b>self attention mechanism.</b>
+                    </p>
+
+                </div>
+                <footer id="footer">
+                    <div style="background-color:#313030">
+                        <div style="height:50px;padding-top: 3px;margin-top: 0px; ; float: bottom;">
+                            <p style="color:	#8d8d8d"> © 2022 Haoxuan Weng 501 Project, powered by GU domain </p>
+                        </div>
+                    </div>
+                </footer>
+            </section>
+        </div>
+    </div>
+
+
+
+
 
 
 

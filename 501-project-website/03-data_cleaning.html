@@ -35,77 +35,122 @@
 
 
     <section class="banner">
-        <div class="left-side">
-            <img src="https://images.unsplash.com/photo-1663051957237-8da7729a1c15?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80" alt="project-overview">
-        </div>
         <div class="content-container">
-            <div class="subject">
-                ANLY 501 Data Science And Analytics
-            </div>
             <div class='research-name'>
                 <h1>
                     Automatic Cyberbulleying detect
                 </h1>
             </div>
+            <div class="subject">
+                ANLY 501 Data Science and Analytics
+            </div>
         </div>
     </section>
 
-    <section class="wrapper">
-        <div style="position:sticky;top: 300px;float: left;max-width: 25%;">
-            <nav class="bx--tableofcontents__desktop" data-autoid="dds--tableofcontents__desktop">
-                <ul>
-                    <li class="bx--tableofcontents__desktop__item"><a href="http://haoxuan-weng.georgetown.domains/501-project-website/01-introduction.html">About this project</a></li>
-                    <li class="bx--tableofcontents__desktop__item bx--tableofcontents__desktop__item--active"><a href="http://haoxuan-weng.georgetown.domains/501-project-website/02-data_collection.html" aria-current="location">Data collection</a></li>
-                    <li class="bx--tableofcontents__desktop__item"><a href="http://haoxuan-weng.georgetown.domains/501-project-website/03-data_cleaning.html">Data Cleaning</a></li>
-                    <li class="bx--tableofcontents__desktop__item"><a href="http://haoxuan-weng.georgetown.domains/501-project-website/04-data_exploring.html">Exploring Data</a></li>
-                    <li class="bx--tableofcontents__desktop__item"><a href="http://haoxuan-weng.georgetown.domains/501-project-website/05-Naive_Bayes.html">Naïve Bayes</a></li>
-                    <li class="bx--tableofcontents__desktop__item"><a href="#trials">Decision Trees</a></li>
-                    <li class="bx--tableofcontents__desktop__item"><a href="#trials">SVM</a></li>
-                    <li class="bx--tableofcontents__desktop__item"><a href="#trials">Clustering</a></li>
-                    <li class="bx--tableofcontents__desktop__item"><a href="#trials">ARM and Networking</a></li>
-                    <li class="bx--tableofcontents__desktop__item"><a href="#trials">Conclusions</a></li>
-                </ul>
-            </nav>
-        </div>
-
+    <div class="wrapper">
         <div class="wrapper-content">
-            <h1>1.Data Cleaning</h1>
+            <h1 style="margin-top: 50px;">1.The ultimate Goal of Data Cleaning</h1>
+            <h2 id="dec1">When the data is spewing garbage</h2>
             <div>
+                <img id='dec2' src="https://miro.medium.com/max/620/1*LUK1pAU235VHhRJmNe6Ymw.png">
                 <p>
-                    After collecting data through twitter API and public datasets online, we need to design a pipeline to clean through the data in steps. Therefore, the preprocessed data can be used to explore deeper with EDA and modeling.
+                    Garbage data can destroy a fancy-designed model. Once your model digests a bunch of dirty data, didn't clean it up, and your model may turn out to be wrong. Incorrect or inconsistent data leads to false conclusions. And so, how well you clean and understand
+                    the data has a high impact on the quality of the results.
                 </p>
                 <p>
-                    There are two hold-out datasets that I used, so we need to both process them into clean ones.
+                    After collecting data through twitter API and public datasets online, we need to design a pipeline to clean through the data in steps. Therefore, the exploratory data analysis and Machine learning techniques can be implemented based on the preprocessed
+                    data.
                 </p>
-                <h2>Cleaning method</h2>
-                <p>
-                    Since the words contains comma, whitesplace, and other unrelated content between each of them, the regular expression and built-in python package called NLTK are largely used in this research. There are many useful funcitons such as word_tokenize and
-                    WordNetLemmatizer that are incredibly effective to process raw data.
-                </p>
-
-                <p>
-                    For the first one that I collect through tweepy, my experienment designs to analyze tweets in lieu of retweets or reply, so we first need to exclude all tweets that contain 'RT' strings. Besides, the variable that contains geographical information is
-                    mainly useless in terms of this experiement, thus deleting it.
-                </p>
-                <img src="https://s2.loli.net/2022/09/29/Svc3sWpzjIqYdVr.png">
-                <span>Figure 1.1</span>
-                <p>
-                    Also, all the texts require a pipeline to preprocess them into clean format. I build a pipeline function to exclude the stopwords, lemmatize the words, stemmetize the words further, and also leverage the regular regression to cut off the irrelated information.
-                </p>
-                <img src="https://s2.loli.net/2022/09/29/ji8nMtHlrZLkWCo.png">
-                <span>Figure 1.2</span>
-                <p>
-                    For the dataset collected from public library, it is preprocessed in the same way. However, for the description variable in the first dataset, there are some emotions and pictures left to be preocessed latter for a proper use.
-                </p>
-
-
-
             </div>
 
+            <div id="dot">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+
+            <div>
+                <h1>2.Cleaning Methodology</h1>
+                <img style="display: block; width: 576px; height: 324px;" src="https://robocrop.realpython.net/?url=https%3A//files.realpython.com/media/NLP-for-Beginners-Pythons-Natural-Language-Toolkit-NLTK_Watermarked.16a787c1e9c6.jpg&w=960&sig=489cef9f55568ff91dbf28a8d48eaa4fab212196">
+                <p>
+                    spaCy and NLTK are two free and open-source library for Natural Language Processing (NLP) in Python with a lot of in-built capabilities. For most of the techniques like tokenizing, stopwords filtering, stemming, word tagging and so on, can be achieved
+                    by importing the above two mentioned built-in packages.
+                </p>
+                <p>
+                    Texts generated by tweeter users generally contain emojis, common words, whitesplace, and other insignificant content, the regular expression and built-in python package called NLTK are largely used in this research project. There are many useful funcitons
+                    such as word_tokenize and WordNetLemmatizer that are incredibly effective to process raw data.
+                </p>
+
+                <p>
+                    Before the data wrangling and cleaning pipeline, this is how the raw data looks like.
+                </p>
+                <img style="margin-top: 10px;" src="https://s2.loli.net/2022/12/07/LgVYZyWzv5asdmc.png">
+
+                <div id="dot">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+                <p>
+                    Missing value exerts negative influence on the following data visualization and modeling. We shall exclude the columns of data that have too many missing rows, and only keep the needed varaibles. Based on this, it is able to improve the modeling efficiency
+                    by reducing the dimensions.
+                </p>
+                <img style="display: block;" src="https://s2.loli.net/2022/12/07/h28ozdFP4UckjWS.png">
+
+                <div id="dot">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+
+                <p>
+                    In the end, all the input text sequences require a pipeline to preprocess them into clean format. I build a pipeline function to exclude the stopwords, lemmatize the words, stemmetize the words further, and also leverage the regular regression to cut
+                    off the irrelated information.
+                </p>
+                <p>
+                    Data cleaning is the prerequiste of data wrangling. Once the input sequence of text is clean, we can tokenize the sequence and transfer each single word into word embedding. <strong>This process is the stepping stone for every text generation, machine translation,
+                        sentiment analysis, or even chatbox-ish Natural Language Processing problem.</strong>
+                </p>
+                <p>
+                    The label 0 represents not a hate speech, whereas the label 1 represents a hate speech.
+                </p>
+                <img style="display: block;" src="https://s2.loli.net/2022/12/07/EW8Kbkdz4MCh19Z.png">
+
+                <div id="dot">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+            <footer id="footer">
+                <div style="background-color:#313030; float: bottom;">
+                    <div style="height:50px;margin-top: 0px; vertical-align: middle;">
+                        <p style="color:	#8d8d8d; "> © 2022 Haoxuan Weng 501 Project, powered by GU domain </p>
+                    </div>
+                </div>
+            </footer>
         </div>
 
+    </div>
+    <div style="position:sticky;top: 300px;float: left;max-width: 25%;">
+        <nav class="bx--tableofcontents__desktop" data-autoid="dds--tableofcontents__desktop">
+            <ul style="font-size: 30px;">
+                <li class="bx--tableofcontents__desktop__item"><a href="http://haoxuan-weng.georgetown.domains/501-project-website/01-introduction.html">About this project</a></li>
+                <li class="bx--tableofcontents__desktop__item bx--tableofcontents__desktop__item--active"><a href="http://haoxuan-weng.georgetown.domains/501-project-website/02-data_collection.html" aria-current="location">Data collection</a></li>
+                <li class="bx--tableofcontents__desktop__item"><a href="http://haoxuan-weng.georgetown.domains/501-project-website/03-data_cleaning.html">Data Cleaning</a></li>
+                <li class="bx--tableofcontents__desktop__item"><a href="http://haoxuan-weng.georgetown.domains/501-project-website/04-data_exploring.html">Exploring Data</a></li>
+                <li class="bx--tableofcontents__desktop__item"><a href="http://haoxuan-weng.georgetown.domains/501-project-website/05-Naive_Bayes.html">Naïve Bayes</a></li>
+                <li class="bx--tableofcontents__desktop__item"><a href="#trials">Decision Trees</a></li>
+                <li class="bx--tableofcontents__desktop__item"><a href="#trials">SVM</a></li>
+                <li class="bx--tableofcontents__desktop__item"><a href="#trials">Clustering</a></li>
+                <li class="bx--tableofcontents__desktop__item"><a href="#trials">ARM and Networking</a></li>
+                <li class="bx--tableofcontents__desktop__item"><a href="#trials">Conclusions</a></li>
+            </ul>
+        </nav>
 
-    </section>
+    </div>
+
+
 
 
 
