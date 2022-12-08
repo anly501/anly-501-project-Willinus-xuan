@@ -362,11 +362,11 @@
                     <li class="bx--tableofcontents__desktop__item"><a href="http://haoxuan-weng.georgetown.domains/501-project-website/03-data_cleaning.html">Data Cleaning</a></li>
                     <li class="bx--tableofcontents__desktop__item"><a href="http://haoxuan-weng.georgetown.domains/501-project-website/04-data_exploring.html">Exploring Data</a></li>
                     <li class="bx--tableofcontents__desktop__item"><a href="http://haoxuan-weng.georgetown.domains/501-project-website/05-Naive_Bayes.html">Naïve Bayes</a></li>
-                    <li class="bx--tableofcontents__desktop__item"><a href="http://haoxuan-weng.georgetown.domains/501-project-website/06-Decision_trees.html">"Decision Trees"</a></li>
+                    <li class="bx--tableofcontents__desktop__item"><a href="http://haoxuan-weng.georgetown.domains/501-project-website/06-Decision_tree.html">Decision Trees</a></li>
                     <li class="bx--tableofcontents__desktop__item"><a href="http://haoxuan-weng.georgetown.domains/501-project-website/07-svm.html">SVM</a></li>
-                    <li class="bx--tableofcontents__desktop__item"><a href="#trials">Clustering</a></li>
-                    <li class="bx--tableofcontents__desktop__item"><a href="#trials">ARM and Networking</a></li>
-                    <li class="bx--tableofcontents__desktop__item"><a href="#trials">Conclusions</a></li>
+                    <li class="bx--tableofcontents__desktop__item"><a href="http://haoxuan-weng.georgetown.domains/501-project-website/08-clustering_analysis.html">Clustering</a></li>
+                    <li class="bx--tableofcontents__desktop__item"><a href="http://haoxuan-weng.georgetown.domains/501-project-website/09-network_analysis.html">ARM and Networking</a></li>
+                    <li class="bx--tableofcontents__desktop__item"><a href="http://haoxuan-weng.georgetown.domains/501-project-website/10-conclusion.html">Conclusions</a></li>
                 </ul>
             </nav>
         </div>
@@ -427,26 +427,7 @@
 <span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.metrics <span class="im">import</span> precision_recall_fscore_support</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
                     </details>
                 </div>
-                <div class="cell" data-execution_count="23">
-                    <details>
-                        <summary>Code</summary>
-                        <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># walk the downloaded dataset</span></span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> dirname, _, filenames <span class="kw">in</span> os.walk(<span class="st">'../../data'</span>):</span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> filename <span class="kw">in</span> filenames:</span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(os.path.join(dirname, filename).replace(<span class="st">'</span><span class="ch">\\</span><span class="st">'</span>,<span class="st">'/'</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-                    </details>
-                    <div class="cell-output cell-output-stdout">
-                        <pre><code>../../data/clean-twitter_en.csv
-../../data/clean_kaggle.csv
-../../data/clean_public.csv
-../../data/cyberbullying_tweets.csv
-../../data/hate_speech.csv
-../../data/labeled_tweets.csv
-../../data/NAACL_SRW_2016.csv
-../../data/public_data_labeled.csv
-../../data/twitter_en.csv</code></pre>
-                    </div>
-                </div>
+
             </section>
             <section id="class-distribution" class="level1" data-number="2">
                 <h1 data-number="2"><span class="header-section-number">2</span> Class Distribution</h1>

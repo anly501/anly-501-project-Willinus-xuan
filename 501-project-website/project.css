@@ -316,3 +316,16 @@ ul {
     position: relative;
     margin-top: -30px;
 }
+
+#quarto-content {
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 1.05rem;
+}
+
+.bx--tableofcontents__desktop {
+    font-family: 'Times New Roman', Times, serif;
+}
+
+main {
+    margin-left: -10em;
+}

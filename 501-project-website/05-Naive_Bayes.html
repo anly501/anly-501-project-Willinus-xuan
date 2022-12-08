@@ -10,9 +10,8 @@
 
     <meta name="author" content="Haoxuan(Will) Weng">
 
-    <title>Cyberviolence</title>
+    <title>nb</title>
     <link rel="stylesheet" href="./project.css">
-
     <style>
         code {
             white-space: pre-wrap;
@@ -328,14 +327,14 @@
 
                 <div class="header-rightside">
                     <a class="su-brand-bar__logo" href="http://haoxuan-weng.georgetown.domains/501-project-website/index.html">
-                    Home
-                </a>
+    Home
+</a>
                     <a class="su-brand-bar__logo code" href="https://github.com/anly501/anly-501-project-Willinus-xuan">
-                    Code
-                </a>
+    Code
+</a>
                     <a class="su-brand-bar__logo code" href="https://github.com/anly501/anly-501-project-Willinus-xuan">
-                    Data
-                </a>
+    Data
+</a>
                 </div>
             </div>
         </div>
@@ -363,11 +362,11 @@
                     <li class="bx--tableofcontents__desktop__item"><a href="http://haoxuan-weng.georgetown.domains/501-project-website/03-data_cleaning.html">Data Cleaning</a></li>
                     <li class="bx--tableofcontents__desktop__item"><a href="http://haoxuan-weng.georgetown.domains/501-project-website/04-data_exploring.html">Exploring Data</a></li>
                     <li class="bx--tableofcontents__desktop__item"><a href="http://haoxuan-weng.georgetown.domains/501-project-website/05-Naive_Bayes.html">Naïve Bayes</a></li>
-                    <li class="bx--tableofcontents__desktop__item"><a href="http://haoxuan-weng.georgetown.domains/501-project-website/06-Decision_trees.html">"Decision Trees"</a></li>
+                    <li class="bx--tableofcontents__desktop__item"><a href="http://haoxuan-weng.georgetown.domains/501-project-website/06-Decision_tree.html">Decision Trees</a></li>
                     <li class="bx--tableofcontents__desktop__item"><a href="http://haoxuan-weng.georgetown.domains/501-project-website/07-svm.html">SVM</a></li>
-                    <li class="bx--tableofcontents__desktop__item"><a href="#trials">Clustering</a></li>
-                    <li class="bx--tableofcontents__desktop__item"><a href="#trials">ARM and Networking</a></li>
-                    <li class="bx--tableofcontents__desktop__item"><a href="#trials">Conclusions</a></li>
+                    <li class="bx--tableofcontents__desktop__item"><a href="http://haoxuan-weng.georgetown.domains/501-project-website/08-clustering_analysis.html">Clustering</a></li>
+                    <li class="bx--tableofcontents__desktop__item"><a href="http://haoxuan-weng.georgetown.domains/501-project-website/09-network_analysis.html">ARM and Networking</a></li>
+                    <li class="bx--tableofcontents__desktop__item"><a href="http://haoxuan-weng.georgetown.domains/501-project-website/10-conclusion.html">Conclusions</a></li>
                 </ul>
             </nav>
         </div>
@@ -379,7 +378,7 @@
                 <h2 id="toc-title">Table of contents</h2>
 
                 <ul>
-                    <li><a href="#naive-bayes-method" id="toc-naive-bayes-method" class="nav-link active" data-scroll-target="#naive-bayes-method"><span class="toc-section-number">1</span>  Naive Bayes Method</a></li>
+                    <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction"><span class="toc-section-number">1</span>  Introduction</a></li>
                     <li><a href="#ont-hot-encoding" id="toc-ont-hot-encoding" class="nav-link" data-scroll-target="#ont-hot-encoding"><span class="toc-section-number">2</span>  Ont-hot encoding</a></li>
                     <li><a href="#smote-algorithm" id="toc-smote-algorithm" class="nav-link" data-scroll-target="#smote-algorithm"><span class="toc-section-number">3</span>  SMOTE algorithm</a></li>
                     <li><a href="#model-training" id="toc-model-training" class="nav-link" data-scroll-target="#model-training"><span class="toc-section-number">4</span>  Model training</a></li>
@@ -393,13 +392,10 @@
 
 
 
-            <section id="naive-bayes-method" class="level1" data-number="1">
-                <h1 data-number="1"><span class="header-section-number">1</span> Naive Bayes Method</h1>
-                <p>Naive Bayes is the most simple algorithm that you can apply to your data. As the name suggests, here this algorithm makes an assumption as all the variables in the dataset is “Naive” i.e not correlated to each other. </p>
-                <p>
-                    Naive Bayes is a very popular classification algorithm that is mostly used to get the base accuracy of the dataset.
-                </p>
-
+            <section id="introduction" class="level1" data-number="1">
+                <h1 data-number="1"><span class="header-section-number">1</span> Introduction</h1>
+                <p>Naive Bayes is the most simple algorithm that you can apply to your data. As the name suggests, here this algorithm makes an assumption as all the variables in the dataset is “Naive” i.e not correlated to each other.</p>
+                <p>Naive Bayes is a very popular classification algorithm that is mostly used to get the base accuracy of the dataset.</p>
                 <div class="cell" data-execution_count="1">
                     <details>
                         <summary>Code</summary>
@@ -422,25 +418,7 @@
 <span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>warnings.filterwarnings(<span class="st">"ignore"</span>, category<span class="op">=</span><span class="pp">FutureWarning</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
                     </details>
                 </div>
-                <div class="cell" data-execution_count="2">
-                    <details>
-                        <summary>Code</summary>
-                        <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> dirname, _, filenames <span class="kw">in</span> os.walk(<span class="st">'../../data'</span>):</span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> filename <span class="kw">in</span> filenames:</span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(os.path.join(dirname, filename).replace(<span class="st">'</span><span class="ch">\\</span><span class="st">'</span>,<span class="st">'/'</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-                    </details>
-                    <div class="cell-output cell-output-stdout">
-                        <pre><code>../../data/clean-twitter_en.csv
-../../data/clean_kaggle.csv
-../../data/clean_public.csv
-../../data/cyberbullying_tweets.csv
-../../data/hate_speech.csv
-../../data/labeled_tweets.csv
-../../data/NAACL_SRW_2016.csv
-../../data/public_data_labeled.csv
-../../data/twitter_en.csv</code></pre>
-                    </div>
-                </div>
+
                 <div class="cell" data-execution_count="3">
                     <details>
                         <summary>Code</summary>
@@ -529,38 +507,24 @@
                         </div>
                     </div>
                 </div>
-                <div class="cell" data-execution_count="4">
-                    <details>
-                        <summary>Code</summary>
-                        <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-                    </details>
-                    <div class="cell-output cell-output-display" data-execution_count="4">
-                        <pre><code>(3479, 8)</code></pre>
-                    </div>
-                </div>
             </section>
             <section id="ont-hot-encoding" class="level1" data-number="2">
                 <h1 data-number="2"><span class="header-section-number">2</span> Ont-hot encoding</h1>
-                <div class="cell">
-                    <details>
-                        <summary>Code</summary>
-                        <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co">#We leveraged only the text data to predict the hate speech in this case. One-hot encoding and tf-idf are two popular and widely used encoding methods to transfer the words into vectors. Both methods get rid of meaning of the words orders,</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-                    </details>
-                </div>
+                <p>We leveraged only the text data to predict the hate speech in this case. One-hot encoding and tf-idf are two popular and widely used encoding methods to transfer the words into vectors. Both methods get rid of meaning of the words orders,</p>
                 <div class="cell" data-execution_count="5">
                     <details>
                         <summary>Code</summary>
-                        <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># transfer the raw text data into matrix</span></span>
-<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>cv <span class="op">=</span> CountVectorizer(analyzer<span class="op">=</span><span class="st">'word'</span>,min_df<span class="op">=</span><span class="fl">0.001</span>)</span>
-<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>content  <span class="op">=</span> df.text</span>
-<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>vector <span class="op">=</span> cv.fit_transform(content)</span>
-<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>data <span class="op">=</span> vector.toarray()</span>
-<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>index_name <span class="op">=</span> cv.get_feature_names_out()</span>
-<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>tfidf <span class="op">=</span> TfidfTransformer()</span>
-<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a>x_tf <span class="op">=</span> tfidf.fit_transform(vector)</span>
-<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> imblearn.over_sampling <span class="im">import</span> SMOTE</span>
-<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a>sm <span class="op">=</span> SMOTE(random_state<span class="op">=</span><span class="dv">42</span>)</span>
-<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a>x,y <span class="op">=</span> sm.fit_resample(x_tf, df[<span class="st">'label'</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+                        <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># transfer the raw text data into matrix</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>cv <span class="op">=</span> CountVectorizer(analyzer<span class="op">=</span><span class="st">'word'</span>,min_df<span class="op">=</span><span class="fl">0.001</span>)</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>content  <span class="op">=</span> df.text</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>vector <span class="op">=</span> cv.fit_transform(content)</span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>data <span class="op">=</span> vector.toarray()</span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>index_name <span class="op">=</span> cv.get_feature_names_out()</span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>tfidf <span class="op">=</span> TfidfTransformer()</span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>x_tf <span class="op">=</span> tfidf.fit_transform(vector)</span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> imblearn.over_sampling <span class="im">import</span> SMOTE</span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>sm <span class="op">=</span> SMOTE(random_state<span class="op">=</span><span class="dv">42</span>)</span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a>x,y <span class="op">=</span> sm.fit_resample(x_tf, df[<span class="st">'label'</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
                     </details>
                 </div>
             </section>
@@ -569,9 +533,9 @@
                 <div class="cell">
                     <details>
                         <summary>Code</summary>
-                        <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> imblearn.over_sampling <span class="im">import</span> SMOTE</span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>sm <span class="op">=</span> SMOTE(random_state<span class="op">=</span><span class="dv">42</span>)</span>
-<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>x,y <span class="op">=</span> sm.fit_resample(x_tf, df[<span class="st">'label'</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+                        <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> imblearn.over_sampling <span class="im">import</span> SMOTE</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>sm <span class="op">=</span> SMOTE(random_state<span class="op">=</span><span class="dv">42</span>)</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>x,y <span class="op">=</span> sm.fit_resample(x_tf, df[<span class="st">'label'</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
                     </details>
                 </div>
             </section>
@@ -580,12 +544,12 @@
                 <div class="cell" data-execution_count="21">
                     <details>
                         <summary>Code</summary>
-                        <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># train and test</span></span>
-<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>X_train, X_test, y_train, y_test <span class="op">=</span> train_test_split(x, y, test_size<span class="op">=</span><span class="fl">0.2</span>, stratify<span class="op">=</span>y, random_state<span class="op">=</span><span class="dv">42</span>)</span>
-<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>clf <span class="op">=</span> MultinomialNB()</span>
-<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>clf.fit(X_train,y_train)</span>
-<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>y_pre <span class="op">=</span> clf.predict(X_test)</span>
-<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>accuracy_score(y_test,y_pre)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+                        <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># train and test</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>X_train, X_test, y_train, y_test <span class="op">=</span> train_test_split(x, y, test_size<span class="op">=</span><span class="fl">0.2</span>, stratify<span class="op">=</span>y, random_state<span class="op">=</span><span class="dv">42</span>)</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>clf <span class="op">=</span> MultinomialNB()</span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>clf.fit(X_train,y_train)</span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>y_pre <span class="op">=</span> clf.predict(X_test)</span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>accuracy_score(y_test,y_pre)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
                     </details>
                 </div>
             </section>
@@ -594,29 +558,29 @@
                 <div class="cell" data-execution_count="23">
                     <details>
                         <summary>Code</summary>
-                        <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co">#confusion matrix</span></span>
-<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> matplotlib.pyplot <span class="im">import</span> xticks</span>
-<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.metrics <span class="im">import</span> confusion_matrix</span>
-<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>fig,ax <span class="op">=</span> plt.subplots(figsize<span class="op">=</span>(<span class="dv">12</span>,<span class="dv">8</span>))</span>
-<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>mx <span class="op">=</span> confusion_matrix(y_test,y_pre)</span>
-<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a><span class="co"># cmd = ConfusionMatrixDisplay(mx,display_labels=['Positive','Negative'])</span></span>
-<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a>group_names <span class="op">=</span> [<span class="st">'True Neg'</span>,<span class="st">'False Neg'</span>,<span class="st">'False Positive'</span>,<span class="st">'True Positive'</span>]</span>
-<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a>group_counts <span class="op">=</span> [<span class="st">"</span><span class="sc">{0:0.0f}</span><span class="st">"</span>.<span class="bu">format</span>(value) <span class="cf">for</span> value <span class="kw">in</span></span>
-<span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a>                mx.flatten()]</span>
-<span id="cb11-10"><a href="#cb11-10" aria-hidden="true" tabindex="-1"></a>group_percentages <span class="op">=</span> [<span class="st">"</span><span class="sc">{:.2%}</span><span class="st">"</span>.<span class="bu">format</span>(value) <span class="cf">for</span> value <span class="kw">in</span> mx.flatten()<span class="op">/</span>np.<span class="bu">sum</span>(mx) ]</span>
-<span id="cb11-11"><a href="#cb11-11" aria-hidden="true" tabindex="-1"></a>labels <span class="op">=</span> [<span class="ss">f"</span><span class="sc">{</span>v1<span class="sc">}</span><span class="ch">\n</span><span class="sc">{</span>v2<span class="sc">}</span><span class="ch">\n</span><span class="sc">{</span>v3<span class="sc">}</span><span class="ss">"</span> <span class="cf">for</span> v1, v2, v3 <span class="kw">in</span></span>
-<span id="cb11-12"><a href="#cb11-12" aria-hidden="true" tabindex="-1"></a>          <span class="bu">zip</span>(group_names,group_counts,group_percentages)]</span>
-<span id="cb11-13"><a href="#cb11-13" aria-hidden="true" tabindex="-1"></a>labels <span class="op">=</span> np.array(labels).reshape(<span class="dv">2</span>,<span class="dv">2</span>)</span>
-<span id="cb11-14"><a href="#cb11-14" aria-hidden="true" tabindex="-1"></a>sns.heatmap(data<span class="op">=</span>mx,annot<span class="op">=</span>labels,fmt<span class="op">=</span><span class="st">''</span>,cmap<span class="op">=</span><span class="st">'Blues'</span>,square<span class="op">=</span><span class="va">True</span>,annot_kws<span class="op">=</span>{<span class="st">"fontsize"</span>:<span class="dv">14</span>})</span>
-<span id="cb11-15"><a href="#cb11-15" aria-hidden="true" tabindex="-1"></a>ax.set_title(<span class="st">'Confusion matrix'</span>,fontsize<span class="op">=</span><span class="dv">16</span>)</span>
-<span id="cb11-16"><a href="#cb11-16" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">'Actual label'</span>,fontsize<span class="op">=</span><span class="dv">18</span>)</span>
-<span id="cb11-17"><a href="#cb11-17" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">'Predicted label'</span>,fontsize<span class="op">=</span><span class="dv">16</span>)</span>
-<span id="cb11-18"><a href="#cb11-18" aria-hidden="true" tabindex="-1"></a>ax.set_xticklabels([<span class="st">'Negative'</span>,<span class="st">'Positive'</span>],fontsize<span class="op">=</span><span class="dv">16</span>)</span>
-<span id="cb11-19"><a href="#cb11-19" aria-hidden="true" tabindex="-1"></a>ax.set_yticklabels([<span class="st">'Negative'</span>,<span class="st">'Positive'</span>],fontsize<span class="op">=</span><span class="dv">16</span>)</span>
-<span id="cb11-20"><a href="#cb11-20" aria-hidden="true" tabindex="-1"></a>plt.savefig(<span class="st">'./confusion_matrix.png'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+                        <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co">#confusion matrix</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> matplotlib.pyplot <span class="im">import</span> xticks</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.metrics <span class="im">import</span> confusion_matrix</span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>fig,ax <span class="op">=</span> plt.subplots(figsize<span class="op">=</span>(<span class="dv">12</span>,<span class="dv">8</span>))</span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>mx <span class="op">=</span> confusion_matrix(y_test,y_pre)</span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a><span class="co"># cmd = ConfusionMatrixDisplay(mx,display_labels=['Positive','Negative'])</span></span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>group_names <span class="op">=</span> [<span class="st">'True Neg'</span>,<span class="st">'False Neg'</span>,<span class="st">'False Positive'</span>,<span class="st">'True Positive'</span>]</span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a>group_counts <span class="op">=</span> [<span class="st">"</span><span class="sc">{0:0.0f}</span><span class="st">"</span>.<span class="bu">format</span>(value) <span class="cf">for</span> value <span class="kw">in</span></span>
+<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a>                mx.flatten()]</span>
+<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a>group_percentages <span class="op">=</span> [<span class="st">"</span><span class="sc">{:.2%}</span><span class="st">"</span>.<span class="bu">format</span>(value) <span class="cf">for</span> value <span class="kw">in</span> mx.flatten()<span class="op">/</span>np.<span class="bu">sum</span>(mx) ]</span>
+<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a>labels <span class="op">=</span> [<span class="ss">f"</span><span class="sc">{</span>v1<span class="sc">}</span><span class="ch">\n</span><span class="sc">{</span>v2<span class="sc">}</span><span class="ch">\n</span><span class="sc">{</span>v3<span class="sc">}</span><span class="ss">"</span> <span class="cf">for</span> v1, v2, v3 <span class="kw">in</span></span>
+<span id="cb8-12"><a href="#cb8-12" aria-hidden="true" tabindex="-1"></a>          <span class="bu">zip</span>(group_names,group_counts,group_percentages)]</span>
+<span id="cb8-13"><a href="#cb8-13" aria-hidden="true" tabindex="-1"></a>labels <span class="op">=</span> np.array(labels).reshape(<span class="dv">2</span>,<span class="dv">2</span>)</span>
+<span id="cb8-14"><a href="#cb8-14" aria-hidden="true" tabindex="-1"></a>sns.heatmap(data<span class="op">=</span>mx,annot<span class="op">=</span>labels,fmt<span class="op">=</span><span class="st">''</span>,cmap<span class="op">=</span><span class="st">'Blues'</span>,square<span class="op">=</span><span class="va">True</span>,annot_kws<span class="op">=</span>{<span class="st">"fontsize"</span>:<span class="dv">14</span>})</span>
+<span id="cb8-15"><a href="#cb8-15" aria-hidden="true" tabindex="-1"></a>ax.set_title(<span class="st">'Confusion matrix'</span>,fontsize<span class="op">=</span><span class="dv">16</span>)</span>
+<span id="cb8-16"><a href="#cb8-16" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">'Actual label'</span>,fontsize<span class="op">=</span><span class="dv">18</span>)</span>
+<span id="cb8-17"><a href="#cb8-17" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">'Predicted label'</span>,fontsize<span class="op">=</span><span class="dv">16</span>)</span>
+<span id="cb8-18"><a href="#cb8-18" aria-hidden="true" tabindex="-1"></a>ax.set_xticklabels([<span class="st">'Negative'</span>,<span class="st">'Positive'</span>],fontsize<span class="op">=</span><span class="dv">16</span>)</span>
+<span id="cb8-19"><a href="#cb8-19" aria-hidden="true" tabindex="-1"></a>ax.set_yticklabels([<span class="st">'Negative'</span>,<span class="st">'Positive'</span>],fontsize<span class="op">=</span><span class="dv">16</span>)</span>
+<span id="cb8-20"><a href="#cb8-20" aria-hidden="true" tabindex="-1"></a>plt.savefig(<span class="st">'./confusion_matrix.png'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
                     </details>
                     <div class="cell-output cell-output-display">
-                        <p><img src="nb_files/figure-html/cell-10-output-1.png" class="img-fluid"></p>
+                        <p><img src="nb_files/figure-html/cell-8-output-1.png" class="img-fluid"></p>
                     </div>
                 </div>
             </section>
@@ -625,55 +589,60 @@
                 <div class="cell" data-execution_count="29">
                     <details>
                         <summary>Code</summary>
-                        <div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.model_selection <span class="im">import</span> learning_curve</span>
-<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>train_sizes<span class="op">=</span>np.linspace(<span class="fl">0.1</span>, <span class="fl">1.0</span>, <span class="dv">5</span>)</span>
-<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>train_sizes, train_scores, test_scores,a,b <span class="op">=</span> learning_curve(</span>
-<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>        estimator<span class="op">=</span>MultinomialNB(),</span>
-<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>        X<span class="op">=</span>X_train,</span>
-<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a>        y<span class="op">=</span>y_train,</span>
-<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a>        scoring<span class="op">=</span><span class="st">'accuracy'</span>,</span>
-<span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a>        cv<span class="op">=</span><span class="dv">5</span>,</span>
-<span id="cb12-9"><a href="#cb12-9" aria-hidden="true" tabindex="-1"></a>        n_jobs<span class="op">=</span><span class="dv">1</span>,</span>
-<span id="cb12-10"><a href="#cb12-10" aria-hidden="true" tabindex="-1"></a>        train_sizes<span class="op">=</span>train_sizes,</span>
-<span id="cb12-11"><a href="#cb12-11" aria-hidden="true" tabindex="-1"></a>        return_times<span class="op">=</span><span class="va">True</span>,</span>
-<span id="cb12-12"><a href="#cb12-12" aria-hidden="true" tabindex="-1"></a>    )</span>
-<span id="cb12-13"><a href="#cb12-13" aria-hidden="true" tabindex="-1"></a>train_scores_mean <span class="op">=</span> np.mean(train_scores, axis<span class="op">=</span><span class="dv">1</span>)</span>
-<span id="cb12-14"><a href="#cb12-14" aria-hidden="true" tabindex="-1"></a>train_scores_std <span class="op">=</span> np.std(train_scores, axis<span class="op">=</span><span class="dv">1</span>)</span>
-<span id="cb12-15"><a href="#cb12-15" aria-hidden="true" tabindex="-1"></a>test_scores_mean <span class="op">=</span> np.mean(test_scores, axis<span class="op">=</span><span class="dv">1</span>)</span>
-<span id="cb12-16"><a href="#cb12-16" aria-hidden="true" tabindex="-1"></a>test_scores_std <span class="op">=</span> np.std(test_scores, axis<span class="op">=</span><span class="dv">1</span>)</span>
-<span id="cb12-17"><a href="#cb12-17" aria-hidden="true" tabindex="-1"></a><span class="co"># fit_times_mean = np.mean(fit_times, axis=1)</span></span>
-<span id="cb12-18"><a href="#cb12-18" aria-hidden="true" tabindex="-1"></a><span class="co"># fit_times_std = np.std(fit_times, axis=1)# Plot learning curve</span></span>
-<span id="cb12-19"><a href="#cb12-19" aria-hidden="true" tabindex="-1"></a><span class="co"># learning curve</span></span>
-<span id="cb12-20"><a href="#cb12-20" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.model_selection <span class="im">import</span> learning_curve</span>
-<span id="cb12-21"><a href="#cb12-21" aria-hidden="true" tabindex="-1"></a>fig,ax <span class="op">=</span> plt.subplots(figsize<span class="op">=</span>(<span class="dv">20</span>,<span class="dv">8</span>))</span>
-<span id="cb12-22"><a href="#cb12-22" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-23"><a href="#cb12-23" aria-hidden="true" tabindex="-1"></a>ax.grid()</span>
-<span id="cb12-24"><a href="#cb12-24" aria-hidden="true" tabindex="-1"></a>ax.fill_between(</span>
-<span id="cb12-25"><a href="#cb12-25" aria-hidden="true" tabindex="-1"></a>    train_sizes,</span>
-<span id="cb12-26"><a href="#cb12-26" aria-hidden="true" tabindex="-1"></a>    train_scores_mean <span class="op">-</span> train_scores_std,</span>
-<span id="cb12-27"><a href="#cb12-27" aria-hidden="true" tabindex="-1"></a>    train_scores_mean <span class="op">+</span> train_scores_std,</span>
-<span id="cb12-28"><a href="#cb12-28" aria-hidden="true" tabindex="-1"></a>    alpha<span class="op">=</span><span class="fl">0.1</span>,</span>
-<span id="cb12-29"><a href="#cb12-29" aria-hidden="true" tabindex="-1"></a>    color<span class="op">=</span><span class="st">"r"</span>,</span>
-<span id="cb12-30"><a href="#cb12-30" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb12-31"><a href="#cb12-31" aria-hidden="true" tabindex="-1"></a>ax.fill_between(</span>
-<span id="cb12-32"><a href="#cb12-32" aria-hidden="true" tabindex="-1"></a>    train_sizes,</span>
-<span id="cb12-33"><a href="#cb12-33" aria-hidden="true" tabindex="-1"></a>    test_scores_mean <span class="op">-</span> test_scores_std,</span>
-<span id="cb12-34"><a href="#cb12-34" aria-hidden="true" tabindex="-1"></a>    test_scores_mean <span class="op">+</span> test_scores_std,</span>
-<span id="cb12-35"><a href="#cb12-35" aria-hidden="true" tabindex="-1"></a>    alpha<span class="op">=</span><span class="fl">0.1</span>,</span>
-<span id="cb12-36"><a href="#cb12-36" aria-hidden="true" tabindex="-1"></a>    color<span class="op">=</span><span class="st">"g"</span>,</span>
-<span id="cb12-37"><a href="#cb12-37" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb12-38"><a href="#cb12-38" aria-hidden="true" tabindex="-1"></a>ax.plot(</span>
-<span id="cb12-39"><a href="#cb12-39" aria-hidden="true" tabindex="-1"></a>    train_sizes, train_scores_mean, <span class="st">"o-"</span>, color<span class="op">=</span><span class="st">"r"</span>, label<span class="op">=</span><span class="st">"Training score"</span></span>
-<span id="cb12-40"><a href="#cb12-40" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb12-41"><a href="#cb12-41" aria-hidden="true" tabindex="-1"></a>ax.plot(</span>
-<span id="cb12-42"><a href="#cb12-42" aria-hidden="true" tabindex="-1"></a>    train_sizes, test_scores_mean, <span class="st">"o-"</span>, color<span class="op">=</span><span class="st">"g"</span>, label<span class="op">=</span><span class="st">"Cross-validation score"</span></span>
-<span id="cb12-43"><a href="#cb12-43" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb12-44"><a href="#cb12-44" aria-hidden="true" tabindex="-1"></a>FS <span class="op">=</span> <span class="dv">14</span></span>
-<span id="cb12-45"><a href="#cb12-45" aria-hidden="true" tabindex="-1"></a>ax.legend(loc<span class="op">=</span><span class="st">"best"</span>,fontsize<span class="op">=</span>FS)</span>
-<span id="cb12-46"><a href="#cb12-46" aria-hidden="true" tabindex="-1"></a>ax.set_title(<span class="st">'Learning Curve(Naive Bayes)'</span>,fontsize<span class="op">=</span>FS)</span>
-<span id="cb12-47"><a href="#cb12-47" aria-hidden="true" tabindex="-1"></a>ax.set_xlabel(<span class="st">'traning_example'</span>,fontsize<span class="op">=</span>FS)</span>
-<span id="cb12-48"><a href="#cb12-48" aria-hidden="true" tabindex="-1"></a>ax.set_ylabel(<span class="st">'accuracy score'</span>,fontsize<span class="op">=</span>FS)</span>
-<span id="cb12-49"><a href="#cb12-49" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+                        <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.model_selection <span class="im">import</span> learning_curve</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>train_sizes<span class="op">=</span>np.linspace(<span class="fl">0.1</span>, <span class="fl">1.0</span>, <span class="dv">5</span>)</span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>train_sizes, train_scores, test_scores,a,b <span class="op">=</span> learning_curve(</span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>        estimator<span class="op">=</span>MultinomialNB(),</span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>        X<span class="op">=</span>X_train,</span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>        y<span class="op">=</span>y_train,</span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>        scoring<span class="op">=</span><span class="st">'accuracy'</span>,</span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a>        cv<span class="op">=</span><span class="dv">5</span>,</span>
+<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a>        n_jobs<span class="op">=</span><span class="dv">1</span>,</span>
+<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a>        train_sizes<span class="op">=</span>train_sizes,</span>
+<span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a>        return_times<span class="op">=</span><span class="va">True</span>,</span>
+<span id="cb9-12"><a href="#cb9-12" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb9-13"><a href="#cb9-13" aria-hidden="true" tabindex="-1"></a>train_scores_mean <span class="op">=</span> np.mean(train_scores, axis<span class="op">=</span><span class="dv">1</span>)</span>
+<span id="cb9-14"><a href="#cb9-14" aria-hidden="true" tabindex="-1"></a>train_scores_std <span class="op">=</span> np.std(train_scores, axis<span class="op">=</span><span class="dv">1</span>)</span>
+<span id="cb9-15"><a href="#cb9-15" aria-hidden="true" tabindex="-1"></a>test_scores_mean <span class="op">=</span> np.mean(test_scores, axis<span class="op">=</span><span class="dv">1</span>)</span>
+<span id="cb9-16"><a href="#cb9-16" aria-hidden="true" tabindex="-1"></a>test_scores_std <span class="op">=</span> np.std(test_scores, axis<span class="op">=</span><span class="dv">1</span>)</span>
+<span id="cb9-17"><a href="#cb9-17" aria-hidden="true" tabindex="-1"></a><span class="co"># fit_times_mean = np.mean(fit_times, axis=1)</span></span>
+<span id="cb9-18"><a href="#cb9-18" aria-hidden="true" tabindex="-1"></a><span class="co"># fit_times_std = np.std(fit_times, axis=1)# Plot learning curve</span></span>
+<span id="cb9-19"><a href="#cb9-19" aria-hidden="true" tabindex="-1"></a><span class="co"># learning curve</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+                    </details>
+                </div>
+                <div class="cell">
+                    <details>
+                        <summary>Code</summary>
+                        <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.model_selection <span class="im">import</span> learning_curve</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>fig,ax <span class="op">=</span> plt.subplots(figsize<span class="op">=</span>(<span class="dv">20</span>,<span class="dv">8</span>))</span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>ax.grid()</span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>ax.fill_between(</span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>    train_sizes,</span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a>    train_scores_mean <span class="op">-</span> train_scores_std,</span>
+<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a>    train_scores_mean <span class="op">+</span> train_scores_std,</span>
+<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a>    alpha<span class="op">=</span><span class="fl">0.1</span>,</span>
+<span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a>    color<span class="op">=</span><span class="st">"r"</span>,</span>
+<span id="cb10-11"><a href="#cb10-11" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb10-12"><a href="#cb10-12" aria-hidden="true" tabindex="-1"></a>ax.fill_between(</span>
+<span id="cb10-13"><a href="#cb10-13" aria-hidden="true" tabindex="-1"></a>    train_sizes,</span>
+<span id="cb10-14"><a href="#cb10-14" aria-hidden="true" tabindex="-1"></a>    test_scores_mean <span class="op">-</span> test_scores_std,</span>
+<span id="cb10-15"><a href="#cb10-15" aria-hidden="true" tabindex="-1"></a>    test_scores_mean <span class="op">+</span> test_scores_std,</span>
+<span id="cb10-16"><a href="#cb10-16" aria-hidden="true" tabindex="-1"></a>    alpha<span class="op">=</span><span class="fl">0.1</span>,</span>
+<span id="cb10-17"><a href="#cb10-17" aria-hidden="true" tabindex="-1"></a>    color<span class="op">=</span><span class="st">"g"</span>,</span>
+<span id="cb10-18"><a href="#cb10-18" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb10-19"><a href="#cb10-19" aria-hidden="true" tabindex="-1"></a>ax.plot(</span>
+<span id="cb10-20"><a href="#cb10-20" aria-hidden="true" tabindex="-1"></a>    train_sizes, train_scores_mean, <span class="st">"o-"</span>, color<span class="op">=</span><span class="st">"r"</span>, label<span class="op">=</span><span class="st">"Training score"</span></span>
+<span id="cb10-21"><a href="#cb10-21" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb10-22"><a href="#cb10-22" aria-hidden="true" tabindex="-1"></a>ax.plot(</span>
+<span id="cb10-23"><a href="#cb10-23" aria-hidden="true" tabindex="-1"></a>    train_sizes, test_scores_mean, <span class="st">"o-"</span>, color<span class="op">=</span><span class="st">"g"</span>, label<span class="op">=</span><span class="st">"Cross-validation score"</span></span>
+<span id="cb10-24"><a href="#cb10-24" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb10-25"><a href="#cb10-25" aria-hidden="true" tabindex="-1"></a>FS <span class="op">=</span> <span class="dv">14</span></span>
+<span id="cb10-26"><a href="#cb10-26" aria-hidden="true" tabindex="-1"></a>ax.legend(loc<span class="op">=</span><span class="st">"best"</span>,fontsize<span class="op">=</span>FS)</span>
+<span id="cb10-27"><a href="#cb10-27" aria-hidden="true" tabindex="-1"></a>ax.set_title(<span class="st">'Learning Curve(Naive Bayes)'</span>,fontsize<span class="op">=</span>FS)</span>
+<span id="cb10-28"><a href="#cb10-28" aria-hidden="true" tabindex="-1"></a>ax.set_xlabel(<span class="st">'traning_example'</span>,fontsize<span class="op">=</span>FS)</span>
+<span id="cb10-29"><a href="#cb10-29" aria-hidden="true" tabindex="-1"></a>ax.set_ylabel(<span class="st">'accuracy score'</span>,fontsize<span class="op">=</span>FS)</span>
+<span id="cb10-30"><a href="#cb10-30" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
                     </details>
                 </div>
             </section>
@@ -682,21 +651,21 @@
                 <div class="cell" data-execution_count="31">
                     <details>
                         <summary>Code</summary>
-                        <div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.metrics <span class="im">import</span> roc_curve, auc,roc_auc_score</span>
-<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">12</span>,<span class="dv">8</span>))</span>
-<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>y_pred_prob <span class="op">=</span> clf.predict_proba(X_test)[::,<span class="dv">1</span>]</span>
-<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>fpr, tpr, threshold <span class="op">=</span> roc_curve(y_test,y_pred_prob)</span>
-<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>auc <span class="op">=</span> roc_auc_score(y_test, y_pred_prob)</span>
-<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a><span class="co">#create ROC curve</span></span>
-<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a>plt.plot(fpr,tpr,label<span class="op">=</span><span class="st">"AUC="</span><span class="op">+</span><span class="bu">str</span>(auc))</span>
-<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">'roc curve(Multinomial Naive Bayes)'</span>,fontsize<span class="op">=</span>FS)</span>
-<span id="cb13-9"><a href="#cb13-9" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">'True Positive Rate'</span>,fontsize<span class="op">=</span>FS)</span>
-<span id="cb13-10"><a href="#cb13-10" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">'False Positive Rate'</span>,fontsize<span class="op">=</span>FS)</span>
-<span id="cb13-11"><a href="#cb13-11" aria-hidden="true" tabindex="-1"></a>plt.legend(loc<span class="op">=</span><span class="st">'lower right'</span>,fontsize<span class="op">=</span>FS)</span>
-<span id="cb13-12"><a href="#cb13-12" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+                        <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.metrics <span class="im">import</span> roc_curve, auc,roc_auc_score</span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">12</span>,<span class="dv">8</span>))</span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>y_pred_prob <span class="op">=</span> clf.predict_proba(X_test)[::,<span class="dv">1</span>]</span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>fpr, tpr, threshold <span class="op">=</span> roc_curve(y_test,y_pred_prob)</span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>auc <span class="op">=</span> roc_auc_score(y_test, y_pred_prob)</span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a><span class="co">#create ROC curve</span></span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a>plt.plot(fpr,tpr,label<span class="op">=</span><span class="st">"AUC="</span><span class="op">+</span><span class="bu">str</span>(auc))</span>
+<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">'roc curve(Multinomial Naive Bayes)'</span>,fontsize<span class="op">=</span>FS)</span>
+<span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">'True Positive Rate'</span>,fontsize<span class="op">=</span>FS)</span>
+<span id="cb11-10"><a href="#cb11-10" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">'False Positive Rate'</span>,fontsize<span class="op">=</span>FS)</span>
+<span id="cb11-11"><a href="#cb11-11" aria-hidden="true" tabindex="-1"></a>plt.legend(loc<span class="op">=</span><span class="st">'lower right'</span>,fontsize<span class="op">=</span>FS)</span>
+<span id="cb11-12"><a href="#cb11-12" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
                     </details>
                     <div class="cell-output cell-output-display">
-                        <p><img src="nb_files/figure-html/cell-12-output-1.png" class="img-fluid"></p>
+                        <p><img src="nb_files/figure-html/cell-11-output-1.png" class="img-fluid"></p>
                     </div>
                 </div>
             </section>
@@ -892,16 +861,15 @@
                 }
             });
         </script>
-        <footer id="footer">
-            <div style="background-color:#313030; float: bottom;">
-                <div style="height:50px;margin-top: 0px; vertical-align: middle;">
-                    <p style="color:	#8d8d8d; "> © 2022 Haoxuan Weng 501 Project, powered by GU domain </p>
-                </div>
-            </div>
-        </footer>
     </div>
     <!-- /content -->
-
+    <footer id="footer">
+        <div style="background-color:#313030; float: bottom;">
+            <div style="height:50px;margin-top: 0px; vertical-align: middle;">
+                <p style="color:	#8d8d8d; "> © 2022 Haoxuan Weng 501 Project, powered by GU domain </p>
+            </div>
+        </div>
+    </footer>
 
 
 </body>
