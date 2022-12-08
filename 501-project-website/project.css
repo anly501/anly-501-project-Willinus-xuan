@@ -310,3 +310,9 @@ ul {
     flex-direction: row;
     flex-wrap: nowrap;
 }
+
+.subject {
+    font-size: 1.8rem;
+    position: relative;
+    margin-top: -30px;
+}
