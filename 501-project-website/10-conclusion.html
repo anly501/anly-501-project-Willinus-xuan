@@ -66,14 +66,90 @@
     <div class="wrapper-content">
         <div>
             <h1 style="margin-top: 50px;">1. Conclusion</h1>
-            <p></p>
+
+            <p>Cyberviolence is a long existing problem and harass the people, most teenagers around us. With rise of social media coupled with the Covid-19 pandemic, cyberbullying has reached all time highs.</p>
+            <div>
+                <h2 id="dec1">The baseline model of Naive Bayes</h2>
+                <p>
+                    In this research project, I initially conducted supervised learning, which is a classification problem with regards to predict hate speech in tweets. In three tabs, I separately leveraged Naive Bayes, Decision Tree, Support Vector Machine.Each of them
+                    has unique advantages. I really want to dive in and compare the permance of the three classic models. Aftering try this three models, we can conclude that Naive Bayes performs better than Decision Tree when using text data to predict
+                    the hate speech. Naive Bayes assumes that the order of the words make no use of predicting labels, which is the origin of the name "Naive". Glove to do the word embedding.
+                </p>
+                <p>
+                    Much as deep learning techniques such as <strong>Recurrent Neural Network, Convolutional Neural Network and Transformer</strong>are all better than Naive Bayes, Naive Bayes still performs surprinsingly well. The reason can be explained
+                    by association rule. To be specific, many words as "Sexist","Women","Nikki",etc. weight much to correctly predict the hate speech. It also means that these words are deemed as strong signals to predict the cyberviolence in each tweets.
+                    This might explains that using tf-idf vectorizer or one-hot encoding could also do a good job even not using Word2Vec or pretrained
+                </p>
+            </div>
+            <div id="dot">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+
+            <div>
+                <h2 id="dec1">Network analysis & Exploratory data analysis</h2>
+                <p>
+                    Above all, we assumed that we can dig useful information from each Twitter portfolio inforamation and this inspired us to add numerical data into our model to implement network analysis. Beyond expectation, we notice that there are statistical difference
+                    between the users who text longer sequence of words than the ones text shorter. While longer tweets is more likely to be non-violent, shorter but maybe more powerful one seems to be more like hate speech.
+                </p>
+                <img style="display: block;" src="https://s2.loli.net/2022/12/07/V7TUgfpaoQyAbRv.png">
+                <p>
+                    However, also from the results given by the exploratory data anlysis, the followers counts and the friends counts seem not to be useful for separating the hate speech and normal tweets. For the future study, researchers can add more user characteristics,
+                    for example, documenting the users' gender, age, relion, and so on may be useful.
+                </p>
+            </div>
+            <div id="dot">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <div>
+                <h2 id="dec1">Clustering analysis</h2>
+                <p>
+                    The clustering methods are frequently applied in marketing fields. Due to my marketing bachelor degree, I try to conduct unsupervised learning to unearth patterns behind the numerical data with no awareness.
+                </p>
+                <p>
+                    Three clustering methods were used, namely, KMEANS++, DBSCAN,Agglomerative Clustering. These methods are selected from density clustering, Hierachical Clustering, Partitioning Method. However, the potential association underneath the dataset derived from
+                    the Unsupervised learning is hard to explanable sometimes especially once the data is normalized and decomposed into 2D.
+                </p>
+                <p>
+                    The takeway from the clustering analysis is that the K-means++ method is the best among this three unsupervised algorithm in this dataset. K-means++, to some extent, is similar to the actual cyberviolence distribution in the text. But, once again, how
+                    the distribution of the portfolio user information data, namely, follower numbers, likes numbers, retweet numbers and so on, vary and therefore influcing the prediction of hate speech is still largely unknown.
+                </p>
+            </div>
+            <div id="dot">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
         </div>
 
         <div>
             <h1 style="margin-top: 50px;">2. Limitation</h1>
+            <h2 id="dec1">Deep Learning Techniques require</h2>
+            <p>
+                Natural Language Processing (NLP) is a form of Artificial Intelligence that gives machines the ability to read and interpret human language. Naive Bayes is seen as a breaking stone of more sophisticated deep learning models. The NLP techniques evlove
+                from basic N-gram model to many variants of Transformer, which base on self-attention mechanism, during when the vanilla Recurrent Neural Network or even superior RNN models as multi-layer bidirectional LSTM that adds attention layers
+                are discarded in most of the Language Processing Industry.
+            </p>
+            <p>
+                In this research project, I leverage several traditional ML models without using even ensemble learning of bagging and boosting methods. The results show that the recall and accuracy can reach 70% around, which is at least larger than a given random classifier.
+                However, I believe that once adopting more DL techniques, the performance can increase in a big step.
+            </p>
+            <div>
+                <footer id="footer">
+                    <div style="background-color:#313030; float: bottom;">
+                        <div style="height:50px;margin-top: 0px; vertical-align: middle;">
+                            <p style="color:	#8d8d8d; "> © 2022 Haoxuan Weng 501 Project, powered by GU domain </p>
+                        </div>
+                    </div>
+                </footer>
+            </div>
         </div>
 
     </div>
+
 </body>
 
 </html>
